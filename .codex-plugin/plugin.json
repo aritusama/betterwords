@@ -1,0 +1,39 @@
+{
+  "name": "betterwords",
+  "version": "1.0.0",
+  "description": "Writing-quality rules for durable text artifacts.",
+  "author": {
+    "name": "aritusama",
+    "url": "https://github.com/aritusama"
+  },
+  "homepage": "https://github.com/aritusama/betterwords",
+  "repository": "https://github.com/aritusama/betterwords",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "editing",
+    "copyediting",
+    "style",
+    "ai-writing"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "betterwords",
+    "shortDescription": "Tighten durable text and remove weak AI writing patterns.",
+    "longDescription": "A Codex skill for drafting, rewriting, copyediting, and auditing production text. It preserves source limits, avoids unsupported claims, and cuts common AI-like phrasing.",
+    "developerName": "aritusama",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/aritusama/betterwords",
+    "defaultPrompt": [
+      "Copyedit this draft",
+      "Rewrite this for publication",
+      "Audit this text for weak AI patterns"
+    ],
+    "brandColor": "#111827",
+    "screenshots": []
+  }
+}

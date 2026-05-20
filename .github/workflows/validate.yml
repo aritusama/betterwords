@@ -1,0 +1,25 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check plugin manifest
+        run: python -m json.tool .codex-plugin/plugin.json >/dev/null
+      - name: Check core rule copies match
+        run: cmp betterwords.md skills/betterwords/references/betterwords.md
+      - name: Check required files
+        run: |
+          test -f README.md
+          test -f betterwords.md
+          test -f platforms/common-instructions.md
+          test -f platforms/chatgpt.md
+          test -f platforms/claude.md
+          test -f platforms/gemini.md
+          test -f platforms/github-copilot.md
+          test -f skills/betterwords/SKILL.md
