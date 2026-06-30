@@ -11,6 +11,7 @@ It ships as a Codex skill, a Codex plugin, and a portable Markdown rule file for
 - Preserves supplied facts, uncertainty, and attribution.
 - Blocks unsupported claims, invented quotes, vague sourcing, and fake authority.
 - Cuts common AI-like phrasing, filler scaffolding, inflated significance, and synonym cycling.
+- Marks rules by severity so agents clear truth, hard-ban, density, default-avoid, and audit checks in order.
 - Keeps format requirements intact for specs, slides, tables, release notes, and structured fields.
 - Gives an agent a final self-check before it returns production text.
 
@@ -47,6 +48,7 @@ betterwords/
       references/
         betterwords.md
   LICENSE
+  CHANGELOG.md
   README.md
 ```
 
