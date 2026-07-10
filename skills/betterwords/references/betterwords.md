@@ -1,6 +1,6 @@
 # betterwords
 
-Version 1.1.0. Last updated 2026-06-29 00:43 EEST. Stable filename: `betterwords.md`.
+Version 1.1.1. Last updated 2026-07-10 15:12 EEST. Stable filename: `betterwords.md`.
 
 These rules govern text artifacts produced for external or durable use: articles, reports, reviews, technical explainers, opinion pieces, user stories, release notes, specs, internal docs, newsletters, scripts, slide text, infographic text, and similar production writing. They do not govern ordinary conversational replies unless explicitly loaded for that purpose.
 

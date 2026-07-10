@@ -2,6 +2,13 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [1.1.1] - 2026-07-10
+
+### Changed
+
+- Clarified Codex installation as the primary one-command skill path: `npx skills add aritusama/betterwords`.
+- Marked platform setup files as manual fallback adapters for assistants that cannot install Codex skills.
+
 ## [1.1.0] - 2026-06-29
 
 Adds a severity code to every rule and a layer of structural and mechanical rules. Earlier versions covered surface style; 1.1.0 extends coverage to discourse-level structure, which survives paraphrasing, and to the character-level and formatting artifacts that mark machine-pasted text. No existing rule was removed or weakened.
@@ -38,5 +45,6 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) draw on StoryScope (Russell et 
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[1.1.1]: https://github.com/aritusama/betterwords/releases/tag/v1.1.1
 [1.1.0]: https://github.com/aritusama/betterwords/releases/tag/v1.1.0
 [1.0.0]: https://github.com/aritusama/betterwords/releases/tag/v1.0.0

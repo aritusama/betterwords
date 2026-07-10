@@ -4,7 +4,7 @@
 
 betterwords is a rule set for production writing: articles, reports, reviews, release notes, specs, newsletters, scripts, slide text, and other durable text artifacts.
 
-It ships as a Codex skill, a Codex plugin, and a portable Markdown rule file for other assistants.
+It ships as a self-contained Codex skill. Portable Markdown files and platform adapters are included only for assistants that cannot install Codex skills.
 
 ## What it does
 
@@ -54,16 +54,25 @@ betterwords/
 
 ## Install in Codex
 
-Install the skill from this repository path:
+Install the skill:
 
-```text
-aritusama/betterwords
-skills/betterwords
+```sh
+npx skills add aritusama/betterwords
 ```
 
-If you use Codex with GitHub skill installation, ask Codex to install the `betterwords` skill from `aritusama/betterwords`, path `skills/betterwords`.
+After that, use it by asking for betterwords on a writing task:
 
-## Use outside Codex
+```text
+Use betterwords to copyedit this release note.
+```
+
+The Codex skill loads its own `SKILL.md` and `references/betterwords.md`. You do not need any platform-specific instructions in Codex.
+
+If your installer asks for a path, use `skills/betterwords`.
+
+## Manual setup outside Codex
+
+Use this section only for assistants that cannot install Codex skills.
 
 The portable rule file is `betterwords.md`.
 
