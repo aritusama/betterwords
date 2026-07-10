@@ -4,7 +4,7 @@
 
 betterwords is a rule set for production writing: articles, reports, reviews, release notes, specs, newsletters, scripts, slide text, and other durable text artifacts.
 
-It ships as a self-contained Agent Skill for Codex and Claude. Portable Markdown files and platform adapters are included only for assistants that cannot install skills.
+It ships as a self-contained Agent Skill for Codex, Claude, and Gemini/Antigravity. Portable Markdown files and platform adapters are included only for assistants that cannot install skills.
 
 ## What it does
 
@@ -25,6 +25,8 @@ Do not use it to hide authorship where disclosure is required. Do not use it to 
 
 ```text
 betterwords/
+  gemini-extension.json
+  plugin.json
   .codex-plugin/
     plugin.json
   .claude-plugin/
@@ -103,6 +105,33 @@ For claude.ai, Claude Desktop, or Cowork, zip the `skills/betterwords` folder an
 
 See `platforms/claude.md` for details.
 
+## Install in Gemini or Antigravity
+
+Gemini CLI can load `betterwords` from `gemini-extension.json`; Google Antigravity plugin folders can load it from the root `plugin.json` and `skills/` directory.
+
+Install it as an extension:
+
+```sh
+gemini extensions install https://github.com/aritusama/betterwords --consent
+```
+
+Or link a local checkout while editing:
+
+```sh
+git clone https://github.com/aritusama/betterwords
+gemini extensions link betterwords
+```
+
+You can also install only the skill through Gemini CLI:
+
+```sh
+gemini skills install https://github.com/aritusama/betterwords --path skills/betterwords --scope user --consent
+```
+
+For the Gemini web app, use a Gem with `platforms/common-instructions.md` and `betterwords.md` as knowledge.
+
+See `platforms/gemini.md` for details.
+
 ## Manual setup outside skill hosts
 
 Use this section only for assistants that cannot install skills.
@@ -113,7 +142,7 @@ Use the setup file for your assistant:
 
 - ChatGPT: `platforms/chatgpt.md`
 - Claude: `platforms/claude.md` for native skill support and fallback setup
-- Gemini: `platforms/gemini.md`
+- Gemini: `platforms/gemini.md` for native extension, skill, and Gem setup
 - GitHub Copilot: `platforms/github-copilot.md`
 
 The short instruction adapter is `platforms/common-instructions.md`. Use it in custom GPT instructions, Claude project instructions, Gemini Gem instructions, or Copilot personal instructions. Upload or attach `betterwords.md` as the knowledge file.

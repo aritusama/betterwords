@@ -1,0 +1,9 @@
+{
+  "name": "betterwords",
+  "version": "1.1.3",
+  "description": "Writing-quality rules for durable or external text artifacts.",
+  "author": {
+    "name": "aritusama",
+    "url": "https://github.com/aritusama"
+  }
+}

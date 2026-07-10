@@ -10,7 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check plugin manifest
-        run: python -m json.tool .codex-plugin/plugin.json >/dev/null
+        run: |
+          python -m json.tool gemini-extension.json >/dev/null
+          python -m json.tool plugin.json >/dev/null
+          python -m json.tool .codex-plugin/plugin.json >/dev/null
       - name: Check Claude plugin manifests
         run: |
           python -m json.tool .claude-plugin/plugin.json >/dev/null
@@ -21,6 +24,8 @@ jobs:
         run: |
           test -f README.md
           test -f betterwords.md
+          test -f gemini-extension.json
+          test -f plugin.json
           test -f .claude-plugin/plugin.json
           test -f .claude-plugin/marketplace.json
           test -f platforms/common-instructions.md
