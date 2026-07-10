@@ -4,7 +4,7 @@
 
 betterwords is a rule set for production writing: articles, reports, reviews, release notes, specs, newsletters, scripts, slide text, and other durable text artifacts.
 
-It ships as a self-contained Codex skill. Portable Markdown files and platform adapters are included only for assistants that cannot install Codex skills.
+It ships as a self-contained Agent Skill for Codex and Claude. Portable Markdown files and platform adapters are included only for assistants that cannot install skills.
 
 ## What it does
 
@@ -26,6 +26,9 @@ Do not use it to hide authorship where disclosure is required. Do not use it to 
 ```text
 betterwords/
   .codex-plugin/
+    plugin.json
+  .claude-plugin/
+    marketplace.json
     plugin.json
   .github/
     copilot-instructions.md
@@ -70,16 +73,46 @@ The Codex skill loads its own `SKILL.md` and `references/betterwords.md`. You do
 
 If your installer asks for a path, use `skills/betterwords`.
 
-## Manual setup outside Codex
+## Install in Claude
 
-Use this section only for assistants that cannot install Codex skills.
+Claude supports the same `skills/betterwords` skill directly.
+
+For Claude Code, add this repository as a plugin marketplace and install the plugin:
+
+```text
+/plugin marketplace add aritusama/betterwords
+/plugin install betterwords@betterwords
+```
+
+You can also copy the skill folder directly:
+
+```sh
+git clone https://github.com/aritusama/betterwords
+mkdir -p ~/.claude/skills
+cp -r betterwords/skills/betterwords ~/.claude/skills/
+```
+
+For a single repository, copy it into `.claude/skills/` instead:
+
+```sh
+mkdir -p .claude/skills
+cp -r betterwords/skills/betterwords .claude/skills/
+```
+
+For claude.ai, Claude Desktop, or Cowork, zip the `skills/betterwords` folder and upload it under Customize > Skills.
+
+See `platforms/claude.md` for details.
+
+## Manual setup outside skill hosts
+
+Use this section only for assistants that cannot install skills.
 
 The portable rule file is `betterwords.md`.
 
 Use the setup file for your assistant:
 
 - ChatGPT: `platforms/chatgpt.md`
-- Claude: `platforms/claude.md`
+- Claude: `platforms/claude.md` for native skill support and fallback setup
 - Gemini: `platforms/gemini.md`
 - GitHub Copilot: `platforms/github-copilot.md`
 

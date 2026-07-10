@@ -2,6 +2,17 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [1.1.2] - 2026-07-10
+
+### Added
+
+- Added Claude Code plugin and marketplace manifests under `.claude-plugin/`.
+
+### Changed
+
+- Updated Claude setup docs to lead with native Skill and plugin installation.
+- Clarified that Claude Project instructions are fallback setup where custom skills are unavailable.
+
 ## [1.1.1] - 2026-07-10
 
 ### Changed
@@ -45,6 +56,7 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) draw on StoryScope (Russell et 
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[1.1.2]: https://github.com/aritusama/betterwords/releases/tag/v1.1.2
 [1.1.1]: https://github.com/aritusama/betterwords/releases/tag/v1.1.1
 [1.1.0]: https://github.com/aritusama/betterwords/releases/tag/v1.1.0
 [1.0.0]: https://github.com/aritusama/betterwords/releases/tag/v1.0.0

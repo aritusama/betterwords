@@ -11,12 +11,18 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check plugin manifest
         run: python -m json.tool .codex-plugin/plugin.json >/dev/null
+      - name: Check Claude plugin manifests
+        run: |
+          python -m json.tool .claude-plugin/plugin.json >/dev/null
+          python -m json.tool .claude-plugin/marketplace.json >/dev/null
       - name: Check core rule copies match
         run: cmp betterwords.md skills/betterwords/references/betterwords.md
       - name: Check required files
         run: |
           test -f README.md
           test -f betterwords.md
+          test -f .claude-plugin/plugin.json
+          test -f .claude-plugin/marketplace.json
           test -f platforms/common-instructions.md
           test -f platforms/chatgpt.md
           test -f platforms/claude.md

@@ -1,0 +1,21 @@
+{
+  "name": "betterwords",
+  "displayName": "betterwords",
+  "version": "1.1.2",
+  "description": "Writing-quality rules for durable or external text artifacts.",
+  "author": {
+    "name": "aritusama",
+    "url": "https://github.com/aritusama"
+  },
+  "homepage": "https://github.com/aritusama/betterwords",
+  "repository": "https://github.com/aritusama/betterwords",
+  "license": "MIT",
+  "keywords": [
+    "writing",
+    "editing",
+    "copyediting",
+    "style",
+    "ai-writing"
+  ],
+  "skills": "./skills/"
+}
