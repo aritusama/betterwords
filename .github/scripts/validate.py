@@ -16,7 +16,7 @@ def require(condition: bool, message: str) -> None:
 
 required = [
     "README.md",
-    "CHANGELOG.md",
+    ".github/CHANGELOG.md",
     "LICENSE",
     "betterwords.md",
     "gemini-extension.json",
