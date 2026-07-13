@@ -47,7 +47,7 @@ Use betterwords to copyedit this release note without changing supported facts.
 ```
 
 ```text
-Use betterwords to audit this draft for unsupported claims, stock phrasing, mechanical structure, and source drift.
+Use betterwords to audit this draft for quality.
 ```
 
 Betterwords is a writing-quality system. Do not use it to evade authorship disclosure or fabricate sources, quotations, experience, or evidence.
