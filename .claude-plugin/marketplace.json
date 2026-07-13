@@ -1,6 +1,6 @@
 {
   "name": "betterwords",
-  "description": "Writing-quality plugins for durable and external text artifacts.",
+  "description": "Source-respecting writing rules for durable text artifacts.",
   "owner": {
     "name": "aritusama",
     "url": "https://github.com/aritusama"
@@ -9,7 +9,7 @@
     {
       "name": "betterwords",
       "source": "./",
-      "description": "Writing-quality rules for durable or external text artifacts.",
+      "description": "Source-respecting writing rules for durable text artifacts.",
       "homepage": "https://github.com/aritusama/betterwords",
       "repository": "https://github.com/aritusama/betterwords",
       "license": "MIT",
@@ -18,7 +18,7 @@
         "editing",
         "copyediting",
         "style",
-        "ai-writing"
+        "writing-quality"
       ]
     }
   ]

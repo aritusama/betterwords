@@ -54,10 +54,10 @@ Use this only where custom skills are unavailable.
 
 1. Create a Claude Project.
 2. Upload `betterwords.md` to the project knowledge base.
-3. Put the contents of `platforms/common-instructions.md` in project instructions.
+3. Put the contents of `.github/platforms/common-instructions.md` in project instructions.
 4. Start chats inside that project when you want betterwords to apply.
 
-For one-off chats, attach or paste `betterwords.md`, then paste the contents of `platforms/common-instructions.md`, then provide the draft or writing task.
+For one-off chats, attach or paste `betterwords.md`, then paste the contents of `.github/platforms/common-instructions.md`, then provide the draft or writing task.
 
 ## Official docs checked
 

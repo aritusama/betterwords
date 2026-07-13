@@ -1,7 +1,7 @@
 {
   "name": "betterwords",
-  "version": "1.1.3",
-  "description": "Writing-quality rules for durable or external text artifacts.",
+  "version": "2.0.0",
+  "description": "Source-respecting writing rules for durable text artifacts.",
   "author": {
     "name": "aritusama",
     "url": "https://github.com/aritusama"
@@ -14,7 +14,7 @@
     "editing",
     "copyediting",
     "style",
-    "ai-writing"
+    "writing-quality"
   ],
   "skills": "./skills/"
 }

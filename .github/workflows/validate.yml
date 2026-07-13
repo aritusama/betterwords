@@ -2,35 +2,20 @@ name: validate
 
 on:
   push:
+    branches: [main]
   pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   package:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Check plugin manifest
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - name: Check deterministic rule sync
         run: |
-          python -m json.tool gemini-extension.json >/dev/null
-          python -m json.tool plugin.json >/dev/null
-          python -m json.tool .codex-plugin/plugin.json >/dev/null
-      - name: Check Claude plugin manifests
-        run: |
-          python -m json.tool .claude-plugin/plugin.json >/dev/null
-          python -m json.tool .claude-plugin/marketplace.json >/dev/null
-      - name: Check core rule copies match
-        run: cmp betterwords.md skills/betterwords/references/betterwords.md
-      - name: Check required files
-        run: |
-          test -f README.md
-          test -f betterwords.md
-          test -f gemini-extension.json
-          test -f plugin.json
-          test -f .claude-plugin/plugin.json
-          test -f .claude-plugin/marketplace.json
-          test -f platforms/common-instructions.md
-          test -f platforms/chatgpt.md
-          test -f platforms/claude.md
-          test -f platforms/gemini.md
-          test -f platforms/github-copilot.md
-          test -f skills/betterwords/SKILL.md
+          cp betterwords.md skills/betterwords/references/betterwords.md
+          git diff --exit-code -- skills/betterwords/references/betterwords.md
+      - name: Validate package
+        run: python .github/scripts/validate.py

@@ -8,4 +8,4 @@ Do not apply betterwords to ordinary chat or code comments unless the user asks.
 
 If `docs/betterwords.md` is missing or inaccessible, say that the betterwords rule file is missing instead of guessing the rules.
 
-Preserve supplied facts, attribution, uncertainty, scope, and required format. Do not add facts, sources, quotes, numbers, examples, product claims, or firsthand experience.
+Preserve supplied facts, attribution, uncertainty, scope, and required format. Do not add facts, sources, sourced quotations, numbers, product claims, or firsthand experience. Add a hypothetical example or proposed quote only when the user requests it and its status is explicit.

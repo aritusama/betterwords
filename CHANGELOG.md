@@ -2,6 +2,36 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.0.0] - 2026-07-13
+
+### Added
+
+- Allowed clearly labeled hypothetical examples while continuing to prohibit invented real-world examples.
+- Made proposed quotes an explicit truth-tier exception and required clear labeling until speaker approval.
+- Required sourced quotations to be identifiable and verifiable at the depth expected by the artifact.
+- Added faithful, idiomatic quotation translation while preserving meaning, attribution, stance, uncertainty, and emphasis.
+- Added targeted checks for nonliteral `honest`, `magic`, `mechanics`, and `unlock`.
+- Added checks for unsupported universal claims, stance-first pseudo-candor, aphorism formulas, vague evaluation, empty softeners, manufactured staccato, heading restatements, and diff-anchored documentation.
+- Restored concise checks for knowledge-gap speculation, notability puffing, repeated structural shapes, fake casualness, generic article skeletons, sentence-level informational progress, and avoidably awkward prose.
+- Expanded multilingual guidance for translation-shaped prose, supplied non-native or mixed-language voice, functional equivalents of English patterns, and locale consistency.
+- Added Codex skill metadata and human-readable behavioral evaluations.
+- Documented foundational and later research and comparison influences.
+
+### Changed
+
+- Reorganized and compressed the canonical rules into eight sections, with breaking rule-number changes throughout.
+- Defined AI-polish density across the full vocabulary family and restored the complete watchlist.
+- Restored the explicit `not only X, but also Y` negation variant and expanded the copula-avoidance examples.
+- Split false ranges from fake balance, nominalizations from jargon, format from voice matching, prompt echo from diff anchoring, and triads from comma-tail sentences.
+- Kept `End when done` as the final and only severity-free self-check.
+- Reframed detector-oriented explanations around concrete writing failures such as redundancy, prompt echoing, shallow paraphrase, and over-tidy structure.
+- Tightened draft, rewrite, copyedit, line-edit, audit, and verification output contracts.
+- Resolved overlapping severity ownership for headings, vague attribution, copula avoidance, and dangling modifiers.
+- Made the `[N]`, `[H]`, `[D]`, `[A]`, `[C]` order explicit and tied post-delivery remnants to rule 2.4.
+- Expanded source-strength, filler, stale-metaphor, specificity, structure, and final-audit guidance.
+- Updated Codex, Claude, Gemini, Antigravity, ChatGPT, and Copilot installation guidance.
+- Moved convenience documentation and infographic assets under `.github/` to keep the repository root focused on `betterwords.md` and required host manifests.
+
 ## [1.1.3] - 2026-07-10
 
 ### Added
@@ -49,7 +79,7 @@ Adds a severity code to every rule and a layer of structural and mechanical rule
 - 6.9 `[C]`: prefer the specific, earned choice over the safe central default at each fork.
 - 6.10 `[C]`: do not echo the brief or prompt back.
 - 7.10 `[A]`: do not collapse multiple or competing causes into one tidy chain.
-- 7.11 `[A]`: genuine reader address is a human marker, distinct from conversational filler.
+- 7.11 `[A]`: genuine reader address can carry real content and is distinct from conversational filler.
 - 7.12 `[C]`: match a supplied voice or author baseline; do not invent a persona without one.
 
 ### Changed
@@ -62,12 +92,13 @@ Adds a severity code to every rule and a layer of structural and mechanical rule
 
 ### Sources
 
-The structural rules (6.7 to 6.10, 7.10 to 7.12) draw on StoryScope (Russell et al., arXiv:2604.03136), which finds AI fiction separable by discourse-level structure after style is removed; a CNET piece by Rachel Kane on reading for AI tells; and Wikipedia's Signs of AI writing, which also motivates the mechanical rules (3.8 to 3.10) and several list extensions. These are quality rules; the section 9 ban on detector evasion is unchanged.
+The structural rules (6.7 to 6.10, 7.10 to 7.12) were informed by [StoryScope](https://arxiv.org/abs/2604.03136), which studies AI-generated fiction, and Wikipedia's editorial field guide, [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). StoryScope does not by itself validate rules for reports, reviews, journalism, specifications, or other nonfiction, and neither source supports using these patterns as a general-purpose authorship test. The rules use the sources as prompts for writing-quality review; the section 9 ban on detector evasion is unchanged.
 
 ## [1.0.0] - 2026-05-20
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[2.0.0]: https://github.com/aritusama/betterwords/releases/tag/v2.0.0
 [1.1.3]: https://github.com/aritusama/betterwords/releases/tag/v1.1.3
 [1.1.2]: https://github.com/aritusama/betterwords/releases/tag/v1.1.2
 [1.1.1]: https://github.com/aritusama/betterwords/releases/tag/v1.1.1

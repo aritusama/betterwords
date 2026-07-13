@@ -7,7 +7,7 @@ Use this for Gemini CLI, Google Antigravity, and the Gemini web app.
 Install the repository as an extension:
 
 ```sh
-gemini extensions install https://github.com/aritusama/betterwords --consent
+gemini extensions install https://github.com/aritusama/betterwords
 ```
 
 For local development, link a checkout instead:
@@ -24,7 +24,7 @@ Gemini CLI reads `gemini-extension.json`; Antigravity plugin folders read `plugi
 Install only the betterwords skill:
 
 ```sh
-gemini skills install https://github.com/aritusama/betterwords --path skills/betterwords --scope user --consent
+gemini skills install https://github.com/aritusama/betterwords --path skills/betterwords --scope user
 ```
 
 Use `--scope workspace` instead of `--scope user` when the skill should apply only to the current project.
@@ -33,8 +33,10 @@ For local development, link the skill folder:
 
 ```sh
 git clone https://github.com/aritusama/betterwords
-gemini skills link betterwords/skills/betterwords --scope workspace --consent
+gemini skills link betterwords/skills/betterwords --scope workspace
 ```
+
+Use `--consent` only for a non-interactive installation where skipping the security confirmation is intentional.
 
 ## Manual plugin folder
 
@@ -51,13 +53,13 @@ Antigravity can discover the root `plugin.json` from that folder.
 Use this for the web-based Gemini app where native skills or extensions are unavailable.
 
 1. Create a new Gem in Gemini.
-2. Put the contents of `platforms/common-instructions.md` in the Gem instructions.
+2. Put the contents of `.github/platforms/common-instructions.md` in the Gem instructions.
 3. Add `betterwords.md` under the Gem knowledge files.
 4. Preview the Gem with a real editing prompt before using or sharing it.
 
 ## One-off web setup
 
-Attach or paste `betterwords.md`, then paste the contents of `platforms/common-instructions.md`, then provide the draft or writing task.
+Attach or paste `betterwords.md`, then paste the contents of `.github/platforms/common-instructions.md`, then provide the draft or writing task.
 
 ## Official docs checked
 

@@ -1,0 +1,7 @@
+interface:
+  display_name: "betterwords"
+  short_description: "Draft, edit, and audit source-respecting production text."
+  default_prompt: "Use $betterwords to copyedit this production draft without changing supported facts, uncertainty, attribution, or required format."
+
+policy:
+  allow_implicit_invocation: true

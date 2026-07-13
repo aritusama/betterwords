@@ -1,27 +1,31 @@
 ---
 name: betterwords
-description: Writing-quality rules for durable or external text artifacts. Use for drafting, rewriting, line-editing, or auditing production text when the user does not need the full ghostwriter workflow.
+description: Apply source-respecting writing and editing rules to durable text artifacts. Use for drafting, rewriting, copyediting, line editing, or auditing articles, reports, reviews, documentation, release notes, specifications, scripts, slide text, and infographic text. Do not use for ordinary conversational replies unless explicitly requested.
 ---
 
 # betterwords
 
-Use this skill for production text: articles, reports, reviews, technical explainers, opinion pieces, user stories, release notes, specs, internal docs, newsletters, scripts, slide text, infographic text, and similar durable writing.
+Load [betterwords](./references/betterwords.md) before working on the artifact. Apply its rules inside production text, not to ordinary conversation around the task.
 
-Do not use it for ordinary chat unless the user explicitly asks. Do not use it to mimic a private person, hide weak evidence, invent sources, or bypass required authorship disclosure.
+## Draft or rewrite
 
-## Required context
+- Return the production text first.
+- Preserve supplied facts, attribution, uncertainty, scope, and required format.
+- Add only short notes about material assumptions or unresolved source problems.
 
-Load [betterwords](./references/betterwords.md) before drafting, rewriting, or auditing the text.
+## Copyedit or line edit
 
-## Workflow
+- Edit at the level requested. Do not silently turn a copyedit into a rewrite.
+- Return the edited artifact first.
+- Mention only consequential changes, ambiguity, or unresolved source problems.
 
-1. Identify the artifact type and whether the user wants drafting, revision, copyedit, or audit.
-2. Apply `betterwords.md` inside the production text only.
-3. Preserve user-supplied facts, uncertainty, and attribution. If sources are missing, do not strengthen claims.
-4. Keep format requirements above prose preferences when they conflict.
-5. Separate production text from commentary for medium or long outputs.
-6. If factual verification is needed but sources are absent, label the result as unverified instead of pretending it is checked.
+## Audit
 
-## Output
+- Do not silently rewrite the artifact unless asked.
+- Report findings in severity order.
+- For each finding, include the exact excerpt, rule number, explanation, and a concise proposed correction.
+- Distinguish confirmed violations from judgment calls.
 
-Give the revised or drafted artifact first when that is the user's main request. Keep commentary short and only mention material assumptions, unresolved source issues, or choices that affect use.
+## Verification boundary
+
+Do not describe an output as fact-checked unless the task included source verification. If verification was required but sources were unavailable, label the factual status as unverified.

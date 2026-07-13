@@ -1,226 +1,187 @@
 # betterwords
 
-Version 1.1.3. Last updated 2026-07-10 20:59 EEST. Stable filename: `betterwords.md`.
+Version 2.0.0. Last updated 2026-07-13. Stable filename: `betterwords.md`.
 
-These rules govern text artifacts produced for external or durable use: articles, reports, reviews, technical explainers, opinion pieces, user stories, release notes, specs, internal docs, newsletters, scripts, slide text, infographic text, and similar production writing. They do not govern ordinary conversational replies unless explicitly loaded for that purpose.
+These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
-The goal is clear, specific, source-respecting production text that avoids weak LLM defaults. Do not use these rules to misrepresent authorship where disclosure is required.
+The goal is clear, specific, source-respecting text without weak LLM defaults. Do not use these rules to misrepresent authorship where disclosure is required.
 
 ## Operating notes
 
-Use these rules for long-form non-fiction and structured professional writing. They are not calibrated for fiction, poetry, legal drafting, transcripts, raw interview text, or short code comments. In those cases, apply only the parts that fit the artifact.
+Apply only the parts that fit fiction, poetry, legal drafting, transcripts, raw interviews, or short code comments.
 
-When instructions conflict, follow this order: safety, law, platform rules, and required disclosure; truth, source status, and uncertainty; the user's current task; explicit one-off overrides; artifact format; style, audience, and format briefs; these betterwords rules; taste.
+When instructions conflict, follow this order: safety, law, platform rules, and required disclosure; truth and source status; the current task; explicit overrides; required format; audience and style briefs; these rules; taste.
 
-Format can override prose defaults. Slides, infographics, tables, release notes, specs, UI copy, and structured fields may require bullets, fragments, labels, tight hierarchy, or tables. Apply these rules inside the chosen format instead of forcing all output into flowing prose.
+Required format can override prose defaults. Slides, tables, specs, UI copy, release notes, and structured fields may need bullets, fragments, labels, or hierarchy.
 
-Use the severity terms this way. Each rule begins with a one-letter code.
+Severity descends in this order:
 
-[N] never means an absolute rule that must not be broken; it governs the truth and sourcing rules in section 1.
+- [N] Never: absolute truth or sourcing rule.
+- [H] Hard ban: use only when quoted, source-required, format-required, or explicitly required.
+- [D] Density warning: one instance may work; clusters fail.
+- [A] Default avoid: use only when it serves the task or format.
+- [C] Audit trigger: inspect during the final pass; context decides.
 
-[H] Hard ban means do not use unless quoted, source-required, format-required, or explicitly required by the user.
+## 1. Truth and sources
 
-[A] Default avoid means avoid unless it genuinely serves the task or format.
+1.1. [N] Never invent facts, numbers, dates, names, citations, sources, credentials, real-world examples, firsthand experience, or quotations presented as already spoken. A citation must exist and support its claim. Clearly labeled hypotheticals are allowed when they cannot be mistaken for evidence or real experience.
 
-[D] Density warning means one instance may be fine; clusters are the failure.
+1.2. [N] A source cannot support a stronger or broader claim than it makes. Preserve uncertainty, caveats, estimates, and scope. Do not turn limited evidence into universal claims.
 
-[C] Audit trigger means check during final pass; context decides.
+1.3. [N] For contested or estimated numbers, name the source or method and avoid false precision. Do not turn one or two sources into "many," "widely reported," or equivalent consensus language.
 
-## 1. Truth and source rules
+1.4. [N] Do not smooth away conflict, harm, uncertainty, caveats, or asymmetric evidence to improve flow.
 
-1.1. [N] Never invent facts, numbers, dates, names, quotes, citations, sources, examples, credentials, or firsthand experience.
+1.5. [N] Attribute claims to specific, plausible sources. Do not use unnamed "experts," "studies," "reports," or "critics," manufacture expert status, or fill a short piece with decorative authority.
 
-1.2. [N] Use real perspective only when supplied or source-backed. Do not fabricate lived experience, product testing, interviews, or editorial observation.
+1.6. [N] When quotation marks present sourced speech or text, they mean the exact sourced words unless the text is clearly presented as a translation under 7.4. Attribute every sourced quotation with enough detail for the intended reader to identify and verify its specific source; attribution depth follows the artifact's sourcing standard. Keep signal phrases and paraphrases outside quotation marks. A user-requested quote for a person who will approve it is proposed copy, not a sourced quote; label it pending approval and stay within supplied facts.
 
-1.3. [N] A source cannot support a stronger claim than it makes. If the source says "may," "could," "early evidence," or "limited data," preserve that uncertainty.
+1.7. [C] Preserve a sourced speaker's actual voice. Do not polish a quote into the article's register. Proposed quotes should fit the speaker or office and avoid executive boilerplate.
 
-1.4. [N] For contested or estimated numbers, name the source or method. Round when precision is false. Do not call one or two sources "several," "many," "widely reported," or "broadly recognized."
+## 2. Hard bans
 
-1.5. [N] Do not smooth away conflict, caveats, harm, uncertainty, or asymmetry to make the piece read better.
+2.1. [H] Do not use staged negation formulas: "not just X, but Y," "not only X, but also Y," reversed ("It is X, not just Y") or split ("It may seem like X. But really it is Y.") variants, "no X, no Y, just Z," or stacked "No X. No Y. No Z." slogans.
 
-1.6. [N] Do not attribute claims to "experts," "studies," "industry reports," "observers," "critics," or "scholars" unless the source is named.
+2.2. [H] Remove generic assistant greetings or praise that the artifact does not call for, plus self-identification, knowledge-cutoff disclaimers, "I hope this helps," "Would you like me to," "Let me know if," opener-position "Here is a," and post-delivery offers.
 
-1.7. [N] Sourcing must be plausible, not merely attributed. Do not populate a short piece with named experts or titled authorities unless real reporting would warrant them. Do not promote ordinary sources to "experts," "analysts," or "Dr. X" for cosmetic authority. If the source, role, and relevance are not real and clear, drop the quote or state the claim directly with evidence.
+2.3. [H] Remove filler scaffolding: "in this article," "let's dive in," "here's what you need to know," "it is important to note," "it is worth mentioning," "as everyone knows," and similar throat-clearing.
 
-1.8. [N] Quote literally and attribute specifically. Quotation marks mean the exact words appear in the source.
+2.4. [H] Do not replace evidence with inflated significance: pivotal moments, lasting legacies, vital roles, testaments, broader trends, reshaped landscapes, paved ways, raised questions, blurred boundaries, or equivalent claims. Do not use media mentions, recognition lists, or a subject's obscurity as evidence that it matters.
 
-1.9. [N] Keep quote mechanics clean. Signal phrases stay outside quotation marks; paraphrases do not get quotation marks; direct quotes must be verbatim; when paraphrasing first-person material, adjust pronouns and verbs; use the target language's title and quotation conventions.
+2.5. [H] Do not use promotional or tourism language unless the task is promotional. Cut unsupported superlatives, generic praise, scenic filler, and claims of excellence, innovation, or sustainability.
 
-1.10. [C] When the user explicitly asks for a quote attributed to a specific person who will review, approve, or sign off on it, such as a CEO quote in a press release, treat the task as copywriting for that speaker. Write the quote in the intended speaker's role and likely register, but do not present it as already said, sourced, or published.
+2.6. [H] Do not use "from X to Y" when the endpoints do not form a real scale. List the items instead.
 
-1.11. [C] Quote voice must come from the source, not from the article voice. Do not invent polished quotes or make every speaker sound like the narrator. If a quote is too neat, generic, or vocabulary-matched to the article, verify it, paraphrase without quotation marks, or remove it.
+2.7. [H] Do not use the ritual "Despite [positives], [subject] faces challenges... Despite these challenges..." formula. Name real problems specifically or omit the section.
 
-1.12. [C] For approved ghostwritten quotes, avoid generic executive boilerplate. The quote should sound like something that person or office could plausibly approve, not like a summary paragraph with quotation marks.
+2.8. [H] Do not rotate synonyms for one referent. Keep the same term unless a different word means a different thing.
 
-1.13. [N] A citation must exist and must support the claim attached to it. Do not attach real-looking but unchecked references, do not invent DOIs, ISBNs, or URLs, and do not over-cite to manufacture rigor.
+2.9. [H] Do not turn missing information into claims about scarcity, privacy, or a subject's low profile. Omit the point, name the verified limit, or state that the source set does not establish it.
 
-## 2. Hard-banned writing patterns
-
-2.1. [H] Do not use "not just X, but Y," "not only X, but also Y," reversed variants such as "It is X, not just Y," or split variants such as "It may seem like X. But really it is Y."
-
-2.2. [H] Do not use "no X, no Y, just Z" framings. They create the same staged contrast as the main negation cliché.
-
-2.3. [H] Do not use stacked negation slogans such as "No X. No Y. No Z." This is a separate failure from ordinary rule-of-three rhythm. It creates synthetic emphasis by defining the subject through staged denial.
-
-2.4. [H] Do not use conversational AI remnants in production text, including "I hope this helps," "Would you like me to," "Let me know if," "Is there anything else," "Certainly," "Of course," "Great question," "Absolutely," "Here is a," "Here's a breakdown," "as an AI language model," "as of my last update," "as of my knowledge cutoff," and "I cannot browse the internet."
-
-2.5. [H] Do not use filler scaffolding, including "in this article, we will," "it is important to note," "it should be noted," "it is worth mentioning," "it is hard to overestimate," "no discussion would be complete without," "as everyone knows," and "as they say."
-
-2.6. [H] Do not use vague attribution without a named source, including "industry reports suggest," "experts believe," "some critics argue," "many consider," "scholars note," "has been described as," "widely regarded as," and "often considered."
-
-2.7. [H] Do not use inflated significance as a substitute for evidence, including "pivotal moment," "watershed moment," "key turning point," "stands as," "serves as a testament," "plays a vital/significant/crucial role," "leaves a lasting legacy," "indelible mark," "cements its place," "solidifies its position," "reshaping the landscape," "part of a broader trend," "paving the way," "setting the stage," "raises questions about," "sparks debate about," and "blurs the boundaries between."
-
-2.8. [H] Do not use promotional or tourism language unless the task is explicitly promotional, including "rich cultural heritage," "breathtaking natural beauty," "must-see," "must-visit," "dynamic hub," "vibrant community," "in the heart of," "nestled within," "diverse array," "wide range of experiences," and "commitment to excellence/innovation/sustainability."
-
-2.9. [H] Do not use false ranges where endpoints do not form a real scale. "From artistic expression to technological innovation" is not a range. List the items instead.
-
-2.10. [H] Do not use the empty balance formula: "Despite [positives], [subject] faces challenges... Despite these challenges, [subject] continues..." If problems exist, name them specifically. If they do not matter, omit the section.
-
-2.11. [H] Do not rotate synonyms for the same referent. If the text says "system," keep saying "system" unless a different word means a different thing. Do not cycle "smartphone/device/handset/unit" or "company/firm/organization" for variety.
-
-## 3. Default-avoid patterns
+## 3. Default avoids and density
 
 3.1. [A] Avoid em dashes. Use commas, parentheses, colons, or semicolons. Use en dashes only for numeric ranges.
 
-3.2. [A] Avoid bullet lists in prose contexts. Use bullets only when the format needs them or when each bullet carries a real argument, recommendation, or data point.
+3.2. [A] Match the characters to wherever the text will be published, and keep them consistent. Do not mix curly and straight quotes or apostrophes in one document. Strip unsupported markdown, Unicode styling, decorative emoji, and generator artifacts.
 
-3.3. [A] Do not use the bold-keyword-colon list pattern unless a structured spec requires labels. Do not bold key terms throughout running prose either; bold is for genuine emphasis or required labels.
+3.3. [A] In prose, avoid decorative bullets, bold-keyword-colon lists, pervasive bolding, and small tables. Keep them when the format or data needs them.
 
-3.4. [A] Avoid small tables where prose is clearer. Use tables for structured comparisons or data, not for dressing up two facts.
+3.4. [A] Nest heading levels correctly and use no more hierarchy than the material needs.
 
-3.5. [A] Avoid title-case headings. Use sentence case. Headings should name the specific section content, not generic labels such as "Overview," "Key takeaways," "Future outlook," or "Final thoughts."
+3.5. [A] Avoid stale or jargonized metaphors. Replace them with the concrete action or condition.
 
-3.6. [A] Avoid stale metaphors, including move the needle, low-hanging fruit, at the end of the day, level the playing field, double-edged sword, tip of the iceberg, game-changer, deep dive, circle back, unpack, on the same page, push the envelope, raise the bar, elephant in the room, perfect storm, think outside the box, bottom line, and boots on the ground.
+3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock." Use the direct claim or explanation instead.
 
-3.7. [A] Avoid copula avoidance. Do not replace "is" and "are" with "serves as," "stands as," "represents," "features," "boasts," "marks," or "constitutes" unless the verb is precise.
+3.7. [A] Avoid stance-first pseudo-candor such as "let's be clear," "the reality is," "the truth is," "frankly," and "in all honesty" when it delays or performs conviction. State the claim and support it.
 
-3.8. [A] Match the characters to wherever the text will be published, and keep them consistent. Do not mix curly and straight quotes or apostrophes in one document. Strip generator artifacts: Unicode bold or italic letters, arrows in running prose, Unicode bullet glyphs where the format uses plain text, and decorative emoji, especially in headings.
+3.8. [A] Avoid aphorism formulas such as "X is the language, currency, or architecture of Y" when they replace a concrete claim.
 
-3.9. [A] Strip markdown the destination will not render. When output goes to email, plain text, or a CMS field, remove leftover hashes, asterisks, and horizontal rules. Leave no markup the target does not parse.
+3.9. [A] Avoid copula avoidance. Prefer "is" or a precise verb over "serves as," "functions as," "stands as," "represents," "features," "offers," "boasts," "marks," or "constitutes."
 
-3.10. [A] Keep heading levels properly nested. Do not skip levels (put an H2 under an H1, not an H3), do not start a document below its top level, and do not add headings a short piece does not need. Heading depth should track the actual structure.
+3.10. [D] Watch the aggregate density of AI-polish vocabulary in the artifact: additionally, align with, boast, captivate, comprehensive, crucial, cutting-edge, delve, dynamic, elevate, emphasize, encompass, enduring, enhance, ensure, exemplify, foster, garner, groundbreaking, highlight, in-depth, innovative, insightful, interplay, intricate, key as adjective, landscape, leverage, meticulous, multifaceted, navigate figuratively, nestled, notable, nuanced, pivotal, plethora, profound, realm, renowned, robust, seamless, shed light on, showcase, spearhead, tapestry, testament, transformative, underscore, unique, valuable, vibrant. Treat the list as one family: each occurrence of any listed term adds to the cluster, even when no word repeats. One isolated use may be fine; accumulated use is the failure.
 
-## 4. Density warnings
+3.11. [D] Watch for triads and rhythmic formulas: three adjectives, three clauses, slogan-like stacked nouns, and anaphora used as default punch. Let the content determine the grouping.
 
-4.1. [D] Watch for clusters of AI-polish vocabulary: additionally, align with, boast, captivate, comprehensive, crucial, cutting-edge, delve, dynamic, elevate, emphasize, encompass, enduring, enhance, ensure, exemplify, foster, garner, groundbreaking, highlight, in-depth, innovative, insightful, interplay, intricate, key as adjective, landscape, leverage, meticulous, multifaceted, navigate figuratively, nestled, notable, nuanced, pivotal, plethora, profound, realm, renowned, robust, seamless, shed light on, showcase, spearhead, tapestry, testament, transformative, underscore, unique, valuable, vibrant. The issue is density, not the existence of one ordinary word. Remove clusters first.
+3.12. [D] Watch for repeated comma-tail sentences: independent clause, comma, tagged-on phrase, especially tails beginning "highlighting," "ensuring," "reflecting," "with," or "such as." One may work; repeated tails make the rhythm mechanical. Cut an empty tail or make a substantive thought its own sentence.
 
-4.2. [D] Watch for triads and rhythmic formulas: three adjectives, three clauses, slogan-like stacked nouns, and anaphora used as default punch. Use two or four items when the content calls for it.
+3.13. [D] Cut stacked transitions, routine rhetorical-question pivots, fragment punches, and speech-tag cycling. Use transitions only when logic needs them; default to "said" or "says" unless another tag adds accurate meaning.
 
-4.3. [D] Watch the broader comma-tail shape: independent clause, comma, tagged-on phrase. The tail does not have to be an "-ing" phrase. One in a paragraph is fine; several in a row make the rhythm mechanical.
+3.14. [D] Watch for runs of sentences or paragraphs with the same length, opening, or syntactic shape. Vary structure only when the content calls for it; do not manufacture rhythm for its own sake.
 
-4.4. [D] Treat "..., highlighting," "..., ensuring," "..., reflecting," "..., with," and "..., such as" as common comma-tail forms when they append fake depth. If the thought matters, make it a specific sentence. If it does not, cut it.
+## 4. Sentence craft
 
-4.5. [D] Watch for transition stacking: moreover, furthermore, however, in addition, additionally, on the other hand, in contrast. Use them only when the logical relation would otherwise be unclear.
+4.1. [A] Prefer plain words when meaning is unchanged. Keep technical terms when they are exact, expected, or shorter than the explanation.
 
-4.6. [D] Default to "said" or "says" for speech tags. Use "argued," "claimed," "conceded," "wrote," or "asked" only when the verb adds accurate information. Do not cycle "explains," "notes," "remarks," "emphasizes," and "concludes" for variety.
+4.2. [A] Default to active voice. Passive is useful when the actor is unknown, the receiver matters more, or the register requires it.
 
-## 5. Sentence craft
+4.3. [A] Cut needless words and needless negation: "because" instead of "due to the fact that," "to" instead of "in order to," and "common" instead of "not uncommon," unless the hedge matters.
 
-5.1. [A] Use plain words when they mean the same thing: use not utilize, help not facilitate, show not demonstrate, about not approximately, start not commence, get not obtain, try not endeavor, end not terminate, buy not purchase, need not necessitate, build not construct, enough not sufficient.
+4.4. [A] Prefer specific nouns, verbs, measurements, and observed behavior over adjective or adverb padding. Replace vague judgments such as "amazing," "impressive," "powerful," and "intuitive" with what earns the judgment.
 
-5.2. [C] Keep the longer word when it carries a real technical distinction.
+4.5. [A] Cut or quantify "basically," "kind of," "somewhat," and similar softeners when they carry no real degree or source uncertainty. Preserve meaningful hedges.
 
-5.3. [A] Default to active voice. Passive is fine when the actor is unknown, the receiver matters more, or the register requires it.
+4.6. [A] Turn nominalizations back into verbs. Avoid business-speak when a direct verb says the same thing.
 
-5.4. [A] Cut needless words: "because" not "due to the fact that," "to" not "in order to," "now" not "at this point in time," "many" not "a large number of," "if" not "in the event that," "before" not "prior to," and "can" not "has the ability to."
+4.7. [A] Avoid jargon, acronyms, foreign phrases, and technical terms when a normal word is equally exact. Keep and define them when the audience or subject requires them.
 
-5.5. [A] Use positive form where possible: "common" not "not uncommon," "significant" not "not insignificant," and "similar" not "not dissimilar," unless the partial hedge is genuinely the point.
+4.8. [H] Do not write dangling modifiers. Introductory phrases must attach to the sentence subject.
 
-5.6. [A] Prefer specific nouns and verbs over adjective/adverb padding. "The system handles 10,000 requests per second" beats "the system processes requests quickly."
+## 5. Thought and composition
 
-5.7. [A] Avoid nominalizations and business-speak when the verb is clearer: "decide" instead of "decision-making," "implement" instead of "implementation," and "improve" instead of "enhancement." If the main verb is "is," "has," "involves," "represents," or "constitutes," look for an action noun and turn it back into a verb.
+5.1. [C] Decide the claim, evidence, and reader need before choosing phrasing. Do not let familiar phrases generate the thought. If a sentence feels assembled from stock language, rewrite it from the meaning.
 
-5.8. [A] Avoid jargon, foreign phrases, acronyms, and technical terms when a normal word says the same thing. Keep technical terms when they are exact, expected by the audience, or shorter than the explanation. Define unavoidable jargon on first use unless the audience already knows it.
+5.2. [C] Give each paragraph one job. Split when the claim, time, actor, evidence type, or recommendation changes.
 
-5.9. [H] Avoid dangling modifiers. Introductory participial phrases must attach to the sentence subject: "After reviewing the logs, the team found the bug," not "After reviewing the logs, the bug was found."
+5.3. [C] Use parallel structure for parallel ideas. Keep modifiers and referents close, ambiguous pronouns explicit, and the main point out of throat-clearing or subordinate clauses.
 
-## 6. Thought and composition
+5.4. [C] In summaries and recaps, keep tense consistent unless the timeline changes. Do not drift between past, present, and future for the same event sequence.
 
-6.1. [C] Decide the claim, evidence, and reader need before choosing phrasing. Do not let familiar phrases generate the thought. If a sentence feels assembled from stock language, rewrite it from the meaning.
+5.5. [C] State significance once. Do not explain the obvious inference, recap every paragraph, or restate a heading in the first sentence.
 
-6.2. [C] Make each paragraph do one job. If a paragraph changes claim, time, actor, evidence type, or recommendation, split it. In analytical prose, the first sentence should usually state the paragraph's point; the rest should support, qualify, or apply it.
+5.6. [C] Keep useful secondary threads, competing causes, caveats, and unresolved effects. Do not force a tidy thesis or uninterrupted causal chain onto complicated material.
 
-6.3. [C] Use parallel structure for parallel ideas. In lists, comparisons, headings, acceptance criteria, and release notes, keep matching items in the same grammatical form unless there is a reason to break the pattern.
+5.7. [C] At real choices of example, framing, order, or emphasis, prefer the specific supported choice over the generic center. Do not manufacture quirk; do not default to the median either.
 
-6.4. [C] Keep related words close. Put modifiers next to what they modify. Keep subject, verb, and object as close as clarity allows. Avoid unclear "this," "that," "it," and "they" when the referent could be ambiguous.
+5.8. [C] Do not echo the brief throughout the artifact. Use its terms once where needed, then develop the point. Each paragraph should advance the argument, not restate or redefine it.
 
-6.5. [C] Put emphasis where readers feel it, usually at the end of the sentence or paragraph. Do not bury the main point in a subordinate clause, parenthesis, or throat-clearing opener.
+5.9. [C] In change-driven documentation, write from the diff. Separate what changed from what remains true, and include baseline material only when needed.
 
-6.6. [C] In summaries and recaps, keep tense consistent unless the timeline changes. Do not drift between past, present, and future for the same event sequence.
+5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement. Cut sentences that only rephrase what the reader already knows.
 
-6.7. [C] Do not restate the significance the evidence already carries. State the point once and let it stand. Spelling out the takeaway right after the example, or telling the reader what to feel about a fact, is over-determination. Trust the reader to make the obvious inference. This includes paragraph-closing recaps: do not end each paragraph by restating what it just said.
+## 6. Register and structure
 
-6.8. [C] A piece may carry more than one thread. Forcing everything onto a single linear spine, or unifying every part to the thesis with suspiciously perfect tidiness, is a machine default. Secondary threads and complications that enrich the main line are a sign of real authorship. This is compatible with 6.2: each paragraph still does one job; the whole piece need not reduce to one track.
+6.1. [C] Match the artifact. Let its purpose and format determine structure, density, and register; do not force every text into the same professional middle.
 
-6.9. [C] At each real fork (which example, which framing, which order, which emphasis), the safe central option is the choice most writers and models reach for. Prefer the specific, earned, less generic choice when the material supports it. This is a conception-level decision about substance, not a surface edit, and it is distinct from the detector-metric edits banned in 9.1. Do not manufacture quirk; do not default to the median either.
+6.2. [C] When an author sample or baseline is supplied, match its register and habits. Do not normalize it toward generic professional prose or invent a persona without evidence.
 
-6.10. [C] Do not echo the brief or prompt back. Repeating the task's key terms throughout, defining them, and restating the question is a strong machine tell; it reads like copy written to define terms rather than writing that uses them and moves on. Use the brief's terms once where needed, then develop the point. Each paragraph should advance the argument, not restate or redefine it.
+6.3. [H] Do not open with generic copywriting scene-setters such as "In today's world," "In an era of," "With the rapid development of," "Whether you're X or Y," or "When it comes to." Open with a fact, tension, claim, or scene.
 
-## 7. Register and structure
+6.4. [C] Do not pre-summarize the whole piece unless the format requires an executive summary.
 
-7.1. [C] Match the artifact. A technical spec can be dry and structured. A review can include judgment and firsthand details if supplied. A report can use substantive bullets. A release note can be compressed. Do not force every text into the same polished middle register.
+6.5. [H] Use sentence case and specific headings. Avoid generic labels such as "Overview," "Key takeaways," "Future outlook," "Final thoughts," "Background," "Conclusion," "Impact," and "Challenges and criticism."
 
-7.2. [H] Do not open with "In today's world," "In an era of," "With the rapid development of," or "When it comes to." Instead, open with a concrete fact, tension, claim, or scene.
+6.6. [H] End when done. Avoid summary signals, generic lessons, legacy claims, forced uplift, and final quotations that only repeat the thesis.
 
-7.3. [C] Do not pre-summarize the whole piece in the first paragraph unless the format requires an executive summary. Start with something specific. Let the piece unfold instead of handing the reader the entire article in miniature.
+6.7. [H] On sensitive subjects, describe harm before any justified optimism, match the evidence's asymmetry, and name agency directly. Do not hide harm behind euphemism.
 
-7.4. [H] Use sentence case for headings. Avoid generic header templates, including "Overview," "Key takeaways," "Future outlook," "Final thoughts," "Understanding [topic]," "How [topic] works," "Looking ahead," "Background," "Conclusion," "Legacy," "Impact," "Reception," "Significance," and "Challenges and criticism." Headings should name the specific question, claim, or section content.
+6.8. [C] State a position when the task and evidence allow it. A genuine aside, question, or direct address may carry content; engagement filler may not. Use supplied perspective or observation, never invented experience.
 
-7.5. [H] End when done. Do not close with "In summary," "Overall," "In conclusion," generic lessons, legacy claims, or forced uplift. A conclusion can offer a practical recommendation, a forward-looking observation, or a hard stop.
+6.9. [A] Do not fake casualness with contractions, slang, fragments, or reader address the artifact does not support. A conversational register should come from the subject, audience, or supplied voice, not applied mannerisms.
 
-7.6. [C] Do not outsource the conclusion to a speaker. A final quote that neatly restates the thesis is a strong AI tell. If a quote belongs at the end, it should add a specific detail, complication, or unresolved question. Otherwise end in the writer's voice or stop when done.
+6.10. [C] Avoid generic article skeletons. Let the material and the reader's questions determine section order; remove a section that answers no live question or advances no argument.
 
-7.7. [H] For sensitive topics, do not pivot to optimism before describing harm. Do not manufacture balance when evidence is asymmetric. Match the seriousness of the subject.
+## 7. Multilingual rules
 
-7.8. [H] Do not hide agency or harm behind euphemism. Use direct wording when the source supports it.
+7.1. [C] Write as a competent native writer of the requested language and locale, not as though an English draft had been translated. Build sentences, paragraphs, emphasis, and argument in the target language's natural syntax and discourse habits. Avoid source-language calques, imported sentence shapes, and imported rhetorical structure.
 
-7.9. [C] Applying rules with no authorial judgment produces clean-but-flat text. State positions when the task allows and the evidence supports them. Use supplied perspective, source-backed detail, or real observation. Do not invent perspective to solve flatness.
+7.2. [C] Preserve a supplied non-native, dialectal, regional, or mixed-language voice when it belongs to the artifact. Correct errors at the requested edit level without normalizing the speaker or author into a generic standard voice.
 
-7.10. [A] Do not collapse multiple or competing causes into one tidy chain. Real explanations have contributing factors, partial causes, dead ends, and effects that do not fully resolve. A clean, uninterrupted line from cause to effect is a structural default, not usually the true shape. This extends 1.5 from content to structure.
+7.3. [C] Apply every pattern rule by function in the target language. Remove local equivalents of staged negation, filler scaffolding, generic headings, rhetorical pivots, stale metaphors, inflated significance, and bureaucratic nominalization when they create the same failure, even when the wording differs from the English examples.
 
-7.11. [A] Where the artifact allows a voice, a genuine aside, question, or direct address to the reader - use it, provided it carries real content and does not contradict the style. This differs from the conversational filler banned in 2.4: a real aside qualifies, complicates, or adds information; filler greets, pads, or offers help. Do not add engagement for its own sake.
+7.4. [N] Translation and localization must preserve facts, uncertainty, scope, attribution, speaker stance, and material emphasis. Translate quotations faithfully and idiomatically, for sense rather than word-for-word form: change syntax and idiom as needed for natural target-language expression, but do not paraphrase, improve, soften, or intensify the speaker's meaning. Identify a quotation as translated when readers could otherwise assume they are seeing the source-language wording.
 
-7.12. [C] When a voice sample or author baseline is supplied, match its register and habits; do not normalize toward the generic middle. This applies only when a real baseline exists. Without one, do not invent a persona to fake voice (see 1.2 and 7.9).
+7.5. [C] Use established target-language terminology and target-locale conventions. Keep names, transliteration, abbreviations, dates, numbers, units, capitalization, punctuation, quotation, title, and citation conventions consistent. If an established equivalent is uncertain, keep the source term or flag the uncertainty; do not invent a plausible term.
 
-## 8. Multilingual rules
+## 8. Rewriting
 
-8.1. [C] Write as a competent native speaker of the target language, not as a translation from English. Avoid English calques, imported syntax, and target-language equivalents of AI-polish vocabulary.
+8.1. [H] Do not treat rewriting as detector evasion. Do not use humanizer-tool tactics, synonym spinning, artificial sentence-length variation, hidden characters, spacing tricks, or edits aimed at manipulating detector metrics such as perplexity or burstiness.
 
-8.2. [C] Use established target-language terminology unless a foreign term is genuinely standard. Watch for the local version of bureaucratic, nominalization-heavy register. Apply quotation, title, punctuation, and citation conventions for the target language.
+8.2. [C] Interpret "humanize" as a quality rewrite. Preserve meaning, facts, attribution, uncertainty, scope, required format, and length unless instructed otherwise.
 
-## 9. Rewriting existing AI-like text
+8.3. [C] Do not lightly edit around memorable phrases, stock transitions, paragraph shape, or syntactic formulas. Read for meaning, then rewrite in the target register.
 
-9.1. [H] Do not treat rewriting as detector evasion. Do not use humanizer-tool tactics, synonym spinning, artificial sentence-length variation, hidden characters, spacing tricks, or edits aimed at manipulating detector metrics such as perplexity or burstiness.
-
-9.2. [C] When asked to humanize, improve, or rewrite existing AI-like text, interpret the task as a quality rewrite. If the user explicitly asks for detector evasion, do not perform that task; offer a quality rewrite instead. Preserve meaning, facts, attribution, uncertainty, scope, and required format.
-
-9.3. [C] Do not lightly edit around the source's memorable phrases, stock transitions, paragraph shape, or syntactic formulas. Those patterns often survive paraphrasing and remain visible to readers and detection tools.
-
-9.4. [C] Read for meaning, then rewrite from scratch in the target register. Preserve length unless instructed otherwise. Do not add hedges, sections, claims, examples, sources, or framing that the source did not support.
+8.4. [C] Do not add unsupported claims, examples, sources, sections, hedges, or framing while rewriting.
 
 ## Final self-check
 
-Before delivery, run the checks in severity order, clearing the firmest constraints first.
+Run checks in severity order:
 
-[N] never, then [H] hard ban:
-
-1. Check for invented or unsupported facts, numbers, quotes, citations, sources, credentials, or experience.
-2. Check whether the draft overclaims, hides source uncertainty, uses vague attribution, invents authority, or mishandles quotes.
-3. Check for hard-banned patterns including negation cliché, stacked negation slogan, conversational remnant, filler scaffolding, inflated significance, promotional tone, synonym cycling, false range, and fake balance.
-
-[D] density:
-
-4. Check for density problems including clustered AI vocabulary, triads, comma tails, transition stacking, and speech-tag cycling.
-
-[A] default avoid:
-
-5. Check whether any default-avoid pattern appears without a format or task reason, including em dashes, prose bullets, small tables, generic headings, stale metaphors, copula avoidance, mixed quote styles, stray markup, Unicode or emoji artifacts, and skipped heading levels.
-6. Check sentence craft for needless words, weak verbs, nominalizations, passive overuse, jargon, and false precision.
-
-[C] audit:
-
-7. Check whether the artifact format justifies bullets, labels, tables, fragments, or hierarchy.
-8. Check composition for paragraph unity, related words close, parallel structure, emphasis placement, and tense consistency.
-9. Check structure for over-explained significance, over-unification to one thesis, safe-default framing, brief-echoing, and single-track causality.
-10. Check voice for specificity, baseline match when a sample is supplied, clean-but-flat wording, fake-casual register, and generic professional middle.
-11. Check the finish for generic closing offers or post-delivery suggestions unless they are specifically useful.
+1. [N] Every fact, source, citation, quotation, number, example, and claim scope is supported; quoted sources are identifiable and verifiable at the artifact's required depth; uncertainty and proposed-copy status remain visible.
+2. [H] No staged negation, assistant residue, filler, inflated significance, promotional tone, false range, fake balance, synonym cycling, banned opener or heading, dangling modifier, concealed harm, or forced ending remains.
+3. [D] The aggregate density of AI-polish vocabulary, triads, staccato, comma tails, transitions, rhetorical pivots, and speech tags does not create a pattern.
+4. [A] Punctuation, formatting, stale metaphors, nonliteral shortcuts, pseudo-candor, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
+5. [C] Paragraphs have one job; structure preserves useful complexity; headings, examples, and conclusions do not restate the point.
+6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
+7. [C] Rewrites preserve meaning and evidence while replacing the original phrasing and structure where needed.
+8. [C] Read once for any sentence that is correct but avoidably awkward, overly even, or mechanically assembled. Revise only defects you can name.
+9. End when done.
