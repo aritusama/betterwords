@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.0.1"
+VERSION = "2.0.2"
 
 
 def require(condition: bool, message: str) -> None:
@@ -93,6 +93,7 @@ for fixture in (
     'Each paragraph should advance the argument, not restate or redefine it.',
     '5.9. [C] In change-driven documentation, write from the diff.',
     '5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement.',
+    '5.11. [C] Test the argument as well as the prose.',
     '6.1. [C] Match the artifact.',
     '6.2. [C] When an author sample or baseline is supplied',
     'generic copywriting scene-setters',
@@ -115,6 +116,7 @@ require(set(checks) == set(range(1, 10)), "Final self-check must contain items 1
 for item in range(1, 9):
     require(checks[item].startswith(("[N]", "[H]", "[D]", "[A]", "[C]")), f"Self-check {item} needs a severity label")
 require(checks[9] == "End when done.", "End when done must be the final unlabeled self-check")
+require("conclusions follow from the stated premises and evidence" in checks[5], "Final structure check lacks argument validity")
 hard_check = checks[2]
 default_check = checks[4]
 require("dangling modifier" in hard_check, "Dangling modifiers must be checked at [H]")
@@ -161,6 +163,7 @@ require("ghostwriter" not in frontmatter.casefold(), "Skill trigger mentions a p
 for heading in ("## Draft or rewrite", "## Copyedit or line edit", "## Audit", "## Verification boundary"):
     require(heading in skill, f"Missing skill contract section: {heading}")
 require("For a grouped rule, name the specific pattern after the rule number." in skill, "Audit contract lacks grouped-rule labels")
+require("verify claims against the sources and test the argument before polishing the prose" in skill, "Verification boundary lacks verification-first sequencing")
 
 metadata = (ROOT / "skills/betterwords/agents/openai.yaml").read_text(encoding="utf-8")
 for field in ("display_name:", "short_description:", "default_prompt:", "allow_implicit_invocation: true"):
@@ -172,7 +175,7 @@ require(marketplace["plugins"][0]["source"]["path"] == "./", "Marketplace must l
 require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"], "Empty screenshots field remains")
 
 evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
-require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 21, "Expected 21 behavioral cases")
+require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 22, "Expected 22 behavioral cases")
 for field in (
     "User request:",
     "Input artifact and sources:",
@@ -181,7 +184,7 @@ for field in (
     "Prohibited changes:",
     "Pass/fail rubric:",
 ):
-    require(evals.count(field) == 21, f"Every evaluation needs {field}")
+    require(evals.count(field) == 22, f"Every evaluation needs {field}")
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 for source in ("AP Stylebook", "Chicago Manual of Style"):

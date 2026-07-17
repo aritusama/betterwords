@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.0.1. Last updated 2026-07-17. Stable filename: `betterwords.md`.
+Version 2.0.2. Last updated 2026-07-17. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -128,6 +128,8 @@ Severity descends in this order:
 
 5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement. Cut sentences that only rephrase what the reader already knows.
 
+5.11. [C] Test the argument as well as the prose. Each conclusion must follow from the stated premises and evidence; do not let fluent transitions hide a missing step, contradiction, or unsupported causal link.
+
 ## 6. Register and structure
 
 6.1. [C] Match the artifact. Let its purpose and format determine structure, density, and register; do not force every text into the same professional middle.
@@ -182,7 +184,7 @@ Run checks in severity order:
 2. [H] No staged negation, assistant residue, filler, inflated significance, promotional tone, false range, fake balance, synonym cycling, banned opener or heading, dangling modifier, concealed harm, or forced ending remains.
 3. [D] The aggregate density of AI-polish vocabulary, triads, staccato, comma tails, transitions, rhetorical pivots, and speech tags does not create a pattern.
 4. [A] Punctuation, formatting, stale metaphors, nonliteral shortcuts, pseudo-candor, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
-5. [C] Paragraphs have one job; structure preserves useful complexity; headings, examples, and conclusions do not restate the point.
+5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure preserves useful complexity; headings, examples, and conclusions do not restate the point.
 6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
 7. [C] Rewrites preserve meaning and evidence while replacing the original phrasing and structure where needed.
 8. [C] Read once for any sentence that is correct but avoidably awkward, overly even, or mechanically assembled. Revise only defects you can name.

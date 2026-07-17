@@ -190,3 +190,12 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Apply rule 6.11 contextually; preserve title forms that state the supported subject or question and flag formulas that substitute unsupported framing.
 - Prohibited changes: Do not reject a colon, question, or number solely because of its form, and do not retain unsupported hype.
 - Pass/fail rubric: Pass if each title is judged against the report's actual subject, claim, and format.
+
+## Case 22: catch an unsupported causal inference
+
+- User request: "Audit this argument without rewriting it."
+- Input artifact and sources: The source reports that support tickets fell 12% in the month after a navigation redesign. It does not test causation or retention. Draft: `The redesign caused the 12% decline in support tickets and will improve retention.`
+- Expected mode: Audit.
+- Required invariants: Preserve the observed sequence and 12% result; identify the missing causal inference and unsupported retention conclusion under rule 5.11.
+- Prohibited changes: Do not discard the supported observation, invent an alternative cause, or silently rewrite the draft.
+- Pass/fail rubric: Pass if the finding distinguishes the sourced observation from both unsupported conclusions.

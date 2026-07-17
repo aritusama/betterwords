@@ -29,4 +29,4 @@ Load [betterwords](./references/betterwords.md) before working on the artifact. 
 
 ## Verification boundary
 
-Do not describe an output as fact-checked unless the task included source verification. If verification was required but sources were unavailable, label the factual status as unverified.
+When verification and rewriting are both requested, verify claims against the sources and test the argument before polishing the prose. Do not describe an output as fact-checked unless the task included source verification. If verification was required but sources were unavailable, label the factual status as unverified.

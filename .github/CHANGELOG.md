@@ -2,6 +2,18 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.0.2] - 2026-07-17
+
+### Added
+
+- Added an argument-validity check for missing steps, contradictions, and unsupported causal links.
+- Added a behavioral case that separates a supported observation from unsupported causal and predictive conclusions.
+
+### Changed
+
+- Required verification and argument testing before prose polishing when both verification and rewriting are requested.
+- Added argument validity to the final structure self-check.
+
 ## [2.0.1] - 2026-07-17
 
 ### Added
@@ -110,6 +122,7 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) were informed by [StoryScope](h
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[2.0.2]: https://github.com/aritusama/betterwords/releases/tag/v2.0.2
 [2.0.1]: https://github.com/aritusama/betterwords/releases/tag/v2.0.1
 [2.0.0]: https://github.com/aritusama/betterwords/releases/tag/v2.0.0
 [1.1.3]: https://github.com/aritusama/betterwords/releases/tag/v1.1.3
