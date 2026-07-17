@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.0.0. Last updated 2026-07-13. Stable filename: `betterwords.md`.
+Version 2.0.1. Last updated 2026-07-17. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -78,7 +78,7 @@ Severity descends in this order:
 
 3.9. [A] Avoid copula avoidance. Prefer "is" or a precise verb over "serves as," "functions as," "stands as," "represents," "features," "offers," "boasts," "marks," or "constitutes."
 
-3.10. [D] Watch the aggregate density of AI-polish vocabulary in the artifact: additionally, align with, boast, captivate, comprehensive, crucial, cutting-edge, delve, dynamic, elevate, emphasize, encompass, enduring, enhance, ensure, exemplify, foster, garner, groundbreaking, highlight, in-depth, innovative, insightful, interplay, intricate, key as adjective, landscape, leverage, meticulous, multifaceted, navigate figuratively, nestled, notable, nuanced, pivotal, plethora, profound, realm, renowned, robust, seamless, shed light on, showcase, spearhead, tapestry, testament, transformative, underscore, unique, valuable, vibrant. Treat the list as one family: each occurrence of any listed term adds to the cluster, even when no word repeats. One isolated use may be fine; accumulated use is the failure.
+3.10. [D] Watch the aggregate density of AI-polish vocabulary in the artifact: additionally, align with, boast, captivate, comprehensive, crucial, cutting-edge, delve, dynamic, elevate, emphasize, encompass, enduring, enhance, ensure, exemplify, foster, garner, groundbreaking, highlight, in-depth, innovative, insightful, interplay, intricate, key as adjective, landscape, leverage, meticulous, multifaceted, navigate figuratively, nestled, notable, nuanced, pivotal, plethora, profound, realm, renowned, robust, seamless, shed light on, showcase, spearhead, tapestry, testament, transformative, underscore, unique, valuable, vibrant. Treat the list as one family: each occurrence of any listed term adds to the cluster, even when no word repeats. Established technical terms and precise domain uses are governed by 4.1 and do not count toward this cluster. One isolated use may be fine; accumulated use is the failure.
 
 3.11. [D] Watch for triads and rhythmic formulas: three adjectives, three clauses, slogan-like stacked nouns, and anaphora used as default punch. Let the content determine the grouping.
 
@@ -149,6 +149,8 @@ Severity descends in this order:
 6.9. [A] Do not fake casualness with contractions, slang, fragments, or reader address the artifact does not support. A conversational register should come from the subject, audience, or supplied voice, not applied mannerisms.
 
 6.10. [C] Avoid generic article skeletons. Let the material and the reader's questions determine section order; remove a section that answers no live question or advances no argument.
+
+6.11. [C] Check the title for a generic formula. Use a question, numbered promise, colon construction, or "The hidden cost of X" frame only when it states the artifact's actual subject or claim.
 
 ## 7. Multilingual rules
 

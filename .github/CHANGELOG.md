@@ -2,6 +2,18 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.0.1] - 2026-07-17
+
+### Added
+
+- Added a contextual audit check for generic title formulas.
+- Added behavioral cases for precise technical vocabulary and title-form judgment.
+
+### Changed
+
+- Exempted established technical terms and precise domain uses from the rule 3.10 vocabulary cluster under rule 4.1.
+- Required audit findings on grouped rules to name the specific pattern after the rule number.
+
 ## [2.0.0] - 2026-07-13
 
 ### Added
@@ -98,6 +110,7 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) were informed by [StoryScope](h
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[2.0.1]: https://github.com/aritusama/betterwords/releases/tag/v2.0.1
 [2.0.0]: https://github.com/aritusama/betterwords/releases/tag/v2.0.0
 [1.1.3]: https://github.com/aritusama/betterwords/releases/tag/v1.1.3
 [1.1.2]: https://github.com/aritusama/betterwords/releases/tag/v1.1.2

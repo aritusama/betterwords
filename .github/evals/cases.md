@@ -172,3 +172,21 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Keep the established target-language terms and locale choices consistent throughout.
 - Prohibited changes: Do not switch transliteration systems, mix locale conventions, or invent a plausible equivalent when an established term is uncertain.
 - Pass/fail rubric: Pass if terminology and locale conventions remain consistent and uncertain equivalents are retained or flagged rather than invented.
+
+## Case 20: preserve precise technical uses
+
+- User request: "Copyedit this technical report without weakening exact terminology."
+- Input artifact and sources: `The model uses robust standard errors and dynamic panel estimation. The draft later calls the workflow a robust, dynamic, comprehensive solution that ensures success.`
+- Expected mode: Copyedit.
+- Required invariants: Keep `robust standard errors` and `dynamic panel estimation` as established technical terms; treat the later watchlist words as a separate density judgment.
+- Prohibited changes: Do not strip precise technical terms or exempt every watchlist word merely because the artifact is technical.
+- Pass/fail rubric: Pass if exact terminology remains and generic promotional wording is assessed under rule 3.10.
+
+## Case 21: judge title formulas by function
+
+- User request: "Audit these title options for a report."
+- Input artifact and sources: The report measures retry costs in batch exports and answers whether retries increase processing cost. Options: `Batch Exports: Measured Retry Costs`; `Do Retries Increase Processing Cost?`; `The Hidden Cost of Reliability`; `7 Retry Secrets You Need to Know`. The report supports no hidden mechanism, secrets, or seven-item list.
+- Expected mode: Audit.
+- Required invariants: Apply rule 6.11 contextually; preserve title forms that state the supported subject or question and flag formulas that substitute unsupported framing.
+- Prohibited changes: Do not reject a colon, question, or number solely because of its form, and do not retain unsupported hype.
+- Pass/fail rubric: Pass if each title is judged against the report's actual subject, claim, and format.

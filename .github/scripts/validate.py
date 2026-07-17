@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.0.0"
+VERSION = "2.0.1"
 
 
 def require(condition: bool, message: str) -> None:
@@ -82,6 +82,7 @@ for fixture in (
     '3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock."',
     '3.9. [A] Avoid copula avoidance.',
     'Treat the list as one family: each occurrence of any listed term adds to the cluster, even when no word repeats.',
+    'Established technical terms and precise domain uses are governed by 4.1 and do not count toward this cluster.',
     '3.11. [D] Watch for triads and rhythmic formulas',
     '3.12. [D] Watch for repeated comma-tail sentences',
     '4.6. [A] Turn nominalizations back into verbs.',
@@ -95,6 +96,7 @@ for fixture in (
     '6.1. [C] Match the artifact.',
     '6.2. [C] When an author sample or baseline is supplied',
     'generic copywriting scene-setters',
+    '6.11. [C] Check the title for a generic formula.',
     '7.1. [C] Write as a competent native writer of the requested language and locale',
     '7.2. [C] Preserve a supplied non-native, dialectal, regional, or mixed-language voice',
     'Translate quotations faithfully and idiomatically, for sense rather than word-for-word form',
@@ -158,6 +160,7 @@ require("ordinary conversational replies" in frontmatter, "Skill trigger lacks i
 require("ghostwriter" not in frontmatter.casefold(), "Skill trigger mentions a private system")
 for heading in ("## Draft or rewrite", "## Copyedit or line edit", "## Audit", "## Verification boundary"):
     require(heading in skill, f"Missing skill contract section: {heading}")
+require("For a grouped rule, name the specific pattern after the rule number." in skill, "Audit contract lacks grouped-rule labels")
 
 metadata = (ROOT / "skills/betterwords/agents/openai.yaml").read_text(encoding="utf-8")
 for field in ("display_name:", "short_description:", "default_prompt:", "allow_implicit_invocation: true"):
@@ -169,7 +172,7 @@ require(marketplace["plugins"][0]["source"]["path"] == "./", "Marketplace must l
 require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"], "Empty screenshots field remains")
 
 evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
-require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 19, "Expected 19 behavioral cases")
+require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 21, "Expected 21 behavioral cases")
 for field in (
     "User request:",
     "Input artifact and sources:",
@@ -178,7 +181,7 @@ for field in (
     "Prohibited changes:",
     "Pass/fail rubric:",
 ):
-    require(evals.count(field) == 19, f"Every evaluation needs {field}")
+    require(evals.count(field) == 21, f"Every evaluation needs {field}")
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 for source in ("AP Stylebook", "Chicago Manual of Style"):
