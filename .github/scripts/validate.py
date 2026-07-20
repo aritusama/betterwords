@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.0.3"
+VERSION = "2.1.0"
 
 
 def require(condition: bool, message: str) -> None:
@@ -78,19 +78,23 @@ for fixture in (
     '2.6. [H] Do not use "from X to Y" when the endpoints do not form a real scale.',
     '2.7. [H] Do not use the ritual "Despite [positives], [subject] faces challenges...',
     '3.1. [A] Avoid em dashes. Use commas, parentheses, colons, or semicolons. Use en dashes only for numeric ranges.',
+    'They cannot establish whether a person or model wrote the text',
     'Match the characters to wherever the text will be published, and keep them consistent.',
+    '3.5. [A] Avoid stale, jargonized, incoherent, or crowded metaphors.',
     '3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock."',
     '3.9. [A] Avoid copula avoidance.',
     'Treat the list as one family: each occurrence of any listed term adds to the cluster, even when no word repeats.',
     'Established technical terms and precise domain uses are governed by 4.1 and do not count toward this cluster.',
     '3.15. [D] Watch repeated uses of "here" that point to the writer\'s argument',
-    '3.11. [D] Watch for triads and rhythmic formulas',
+    '3.11. [D] Watch for enumerations shaped for rhythm',
     '3.12. [D] Watch for repeated comma-tail sentences',
+    '3.13. [D] Watch repeated sentence shells used as default emphasis',
     '4.6. [A] Turn nominalizations back into verbs.',
     '4.7. [A] Avoid jargon, acronyms, foreign phrases, and technical terms',
     'Do not let familiar phrases generate the thought.',
     '5.4. [C] In summaries and recaps, keep tense consistent unless the timeline changes.',
     'do not default to the median either.',
+    'An anecdote, example, or frame that could move unchanged to another subject is probably too generic',
     'Each paragraph should advance the argument, not restate or redefine it.',
     '5.9. [C] In change-driven documentation, write from the diff.',
     '5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement.',
@@ -98,6 +102,7 @@ for fixture in (
     '6.1. [C] Match the artifact.',
     '6.2. [C] When an author sample or baseline is supplied',
     'generic copywriting scene-setters',
+    'Let the material, evidence, and reader questions determine section order and length.',
     '6.11. [C] Check the title for a generic formula.',
     '7.1. [C] Write as a competent native writer of the requested language and locale',
     '7.2. [C] Preserve a supplied non-native, dialectal, regional, or mixed-language voice',
@@ -164,6 +169,7 @@ require("ghostwriter" not in frontmatter.casefold(), "Skill trigger mentions a p
 for heading in ("## Draft or rewrite", "## Copyedit or line edit", "## Audit", "## Verification boundary"):
     require(heading in skill, f"Missing skill contract section: {heading}")
 require("For a grouped rule, name the specific pattern after the rule number." in skill, "Audit contract lacks grouped-rule labels")
+require("Do not infer human or model authorship from them." in skill, "Audit contract lacks its authorship boundary")
 require("verify claims against the sources and test the argument before polishing the prose" in skill, "Verification boundary lacks verification-first sequencing")
 
 metadata = (ROOT / "skills/betterwords/agents/openai.yaml").read_text(encoding="utf-8")
@@ -176,7 +182,7 @@ require(marketplace["plugins"][0]["source"]["path"] == "./", "Marketplace must l
 require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"], "Empty screenshots field remains")
 
 evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
-require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 23, "Expected 23 behavioral cases")
+require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 28, "Expected 28 behavioral cases")
 for field in (
     "User request:",
     "Input artifact and sources:",
@@ -185,7 +191,7 @@ for field in (
     "Prohibited changes:",
     "Pass/fail rubric:",
 ):
-    require(evals.count(field) == 23, f"Every evaluation needs {field}")
+    require(evals.count(field) == 28, f"Every evaluation needs {field}")
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 for source in ("AP Stylebook", "Chicago Manual of Style"):

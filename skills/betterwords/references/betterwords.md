@@ -1,10 +1,10 @@
 # betterwords
 
-Version 2.0.3. Last updated 2026-07-21. Stable filename: `betterwords.md`.
+Version 2.1.0. Last updated 2026-07-21. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
-The goal is clear, specific, source-respecting text without weak LLM defaults. Do not use these rules to misrepresent authorship where disclosure is required.
+The goal is clear, specific, source-respecting text without weak LLM defaults. Do not use these rules to misrepresent authorship where disclosure is required. These rules guide editing decisions. They cannot establish whether a person or model wrote the text, so do not use them to label text as human-written or AI-generated.
 
 ## Operating notes
 
@@ -68,7 +68,7 @@ Severity descends in this order:
 
 3.4. [A] Nest heading levels correctly and use no more hierarchy than the material needs.
 
-3.5. [A] Avoid stale or jargonized metaphors. Replace them with the concrete action or condition.
+3.5. [A] Avoid stale, jargonized, incoherent, or crowded metaphors. Keep a figure only when it clarifies a real relation; replace the rest with the concrete action or condition.
 
 3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock." Use the direct claim or explanation instead.
 
@@ -80,11 +80,11 @@ Severity descends in this order:
 
 3.10. [D] Watch the aggregate density of AI-polish vocabulary in the artifact: additionally, align with, boast, captivate, comprehensive, crucial, cutting-edge, delve, dynamic, elevate, emphasize, encompass, enduring, enhance, ensure, exemplify, foster, garner, groundbreaking, highlight, in-depth, innovative, insightful, interplay, intricate, key as adjective, landscape, leverage, meticulous, multifaceted, navigate figuratively, nestled, notable, nuanced, pivotal, plethora, profound, realm, renowned, robust, seamless, shed light on, showcase, spearhead, tapestry, testament, transformative, underscore, unique, valuable, vibrant. Treat the list as one family: each occurrence of any listed term adds to the cluster, even when no word repeats. Established technical terms and precise domain uses are governed by 4.1 and do not count toward this cluster. One isolated use may be fine; accumulated use is the failure.
 
-3.11. [D] Watch for triads and rhythmic formulas: three adjectives, three clauses, slogan-like stacked nouns, and anaphora used as default punch. Let the content determine the grouping.
+3.11. [D] Watch for enumerations shaped for rhythm: habitual triads, slogan-like stacks, anaphora used as default punch, and long comma runs. Include only the items the claim needs.
 
 3.12. [D] Watch for repeated comma-tail sentences: independent clause, comma, tagged-on phrase, especially tails beginning "highlighting," "ensuring," "reflecting," "with," or "such as." One may work; repeated tails make the rhythm mechanical. Cut an empty tail or make a substantive thought its own sentence.
 
-3.13. [D] Cut stacked transitions, routine rhetorical-question pivots, fragment punches, and speech-tag cycling. Use transitions only when logic needs them; default to "said" or "says" unless another tag adds accurate meaning.
+3.13. [D] Watch repeated sentence shells used as default emphasis: routine rhetorical-question pivots, self-answered fragments, isolated verdicts such as "That distinction matters" or "This changes everything," and one-line punch paragraphs that add no consequence. One may work when it carries new information or earns the rhythm break; clusters flatten emphasis. Cut stacked transitions and speech-tag cycling. Use transitions only when logic needs them; default to "said" or "says" unless another tag adds accurate meaning.
 
 3.14. [D] Watch for runs of sentences or paragraphs with the same length, opening, or syntactic shape. Vary structure only when the content calls for it; do not manufacture rhythm for its own sake.
 
@@ -122,7 +122,7 @@ Severity descends in this order:
 
 5.6. [C] Keep useful secondary threads, competing causes, caveats, and unresolved effects. Do not force a tidy thesis or uninterrupted causal chain onto complicated material.
 
-5.7. [C] At real choices of example, framing, order, or emphasis, prefer the specific supported choice over the generic center. Do not manufacture quirk; do not default to the median either.
+5.7. [C] At real choices of example, framing, order, or emphasis, prefer the specific supported choice over the generic center. An anecdote, example, or frame that could move unchanged to another subject is probably too generic; make it specific from supplied evidence or remove it. Do not manufacture quirk or detail; do not default to the median either.
 
 5.8. [C] Do not echo the brief throughout the artifact. Use its terms once where needed, then develop the point. Each paragraph should advance the argument, not restate or redefine it.
 
@@ -152,7 +152,7 @@ Severity descends in this order:
 
 6.9. [A] Do not fake casualness with contractions, slang, fragments, or reader address the artifact does not support. A conversational register should come from the subject, audience, or supplied voice, not applied mannerisms.
 
-6.10. [C] Avoid generic article skeletons. Let the material and the reader's questions determine section order; remove a section that answers no live question or advances no argument.
+6.10. [C] Avoid generic article skeletons. Let the material, evidence, and reader questions determine section order and length. Do not equalize sections or manufacture matched pros and cons for symmetry. Remove a section that answers no live question or advances no argument.
 
 6.11. [C] Check the title for a generic formula. Use a question, numbered promise, colon construction, or "The hidden cost of X" frame only when it states the artifact's actual subject or claim.
 
@@ -184,9 +184,9 @@ Run checks in severity order:
 
 1. [N] Every fact, source, citation, quotation, number, example, and claim scope is supported; quoted sources are identifiable and verifiable at the artifact's required depth; uncertainty and proposed-copy status remain visible.
 2. [H] No staged negation, assistant residue, filler, inflated significance, promotional tone, false range, fake balance, synonym cycling, banned opener or heading, dangling modifier, concealed harm, or forced ending remains.
-3. [D] The aggregate density of AI-polish vocabulary, triads, staccato, comma tails, transitions, rhetorical pivots, speech tags, and "here" framing does not create a pattern.
-4. [A] Punctuation, formatting, stale metaphors, nonliteral shortcuts, pseudo-candor, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
-5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure preserves useful complexity; headings, examples, and conclusions do not restate the point.
+3. [D] The aggregate density of AI-polish vocabulary, sentence shells, triads, staccato, comma lists and tails, transitions, rhetorical pivots, speech tags, and "here" framing does not create a pattern.
+4. [A] Punctuation, formatting, metaphors, nonliteral shortcuts, pseudo-candor, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
+5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure gives material proportional space and preserves useful complexity; examples are specific and supported; headings and conclusions do not restate the point.
 6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
 7. [C] Rewrites preserve meaning and evidence while replacing the original phrasing and structure where needed.
 8. [C] Read once for any sentence that is correct but avoidably awkward, overly even, or mechanically assembled. Revise only defects you can name.

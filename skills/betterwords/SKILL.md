@@ -25,6 +25,7 @@ Load [betterwords](./references/betterwords.md) before working on the artifact. 
 - Report findings in severity order.
 - For each finding, include the exact excerpt, rule number, explanation, and a concise proposed correction.
 - For a grouped rule, name the specific pattern after the rule number.
+- Explain findings as writing-quality problems. Do not infer human or model authorship from them.
 - Distinguish confirmed violations from judgment calls.
 
 ## Verification boundary

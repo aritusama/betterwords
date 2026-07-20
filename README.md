@@ -50,7 +50,7 @@ Use betterwords to copyedit this release note without changing supported facts.
 Use betterwords to audit this draft for quality.
 ```
 
-Betterwords is a writing-quality system. Do not use it to evade authorship disclosure or fabricate sources, quotations, experience, or evidence.
+Betterwords is a writing-quality system. It cannot determine whether a person or model wrote a text. Do not use it to label authorship, evade required disclosure, or fabricate sources, quotations, experience, or evidence.
 
 ## Sources and influences
 
@@ -60,6 +60,7 @@ betterwords is independently written. These sources shaped named parts of the ru
 - George Orwell's [Politics and the English Language](https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/) informed the meaning-first rule, plain wording, stale-metaphor checks, active voice, and the instruction to cut words that do no work.
 - The [Human Detectors paper](https://arxiv.org/abs/2501.15654) and its [annotator data](https://github.com/jenna-russell/human_detectors) informed checks for manufactured sourcing, quotation voice and integration, comma-tailed sentences, speech-tag cycling, generic headings, pre-summarizing introductions, sanitized framing, and nominalization.
 - [StoryScope](https://arxiv.org/abs/2604.03136) informed structural checks for over-tidy composition, prompt echo, and loss of useful complications. These checks are applied as writing-quality diagnostics, not as proof of authorship.
+- [The Rise of Verbal Tics in Large Language Models](https://arxiv.org/abs/2604.19139) informed the aggregate treatment of repetitive formulaic patterns. [EQ-Bench Slop Score](https://eqbench.com/slop-score.html) and Hamed Paydarfar's editorial field report, [5 Dead Giveaways You Are Reading AI-Generated Text](https://medium.com/@By.Anchorite/gpt-5-5-update-5-dead-giveaways-you-are-reading-ai-generated-text-c1076073567f), supplied comparison examples for contrastive and sentence-shell patterns. These sources do not validate authorship classification; the rules use them only as writing-quality prompts.
 - Wikipedia's editorial field guide, [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), supplied additional observed phrase, structure, and formatting patterns.
 - [blader/humanizer](https://github.com/blader/humanizer) and [Pangram](https://www.pangram.com/) served as independent comparison points for coverage and failure modes. betterwords is not a fork of either project and does not optimize text for detector scores.
 

@@ -208,3 +208,48 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Apply rule 3.15 by function under rule 7.3; revise the repeated argument-pointing uses and preserve the literal location.
 - Prohibited changes: Do not ban `тут`, remove its literal use, or alter the claims.
 - Pass/fail rubric: Pass if the prose no longer repeats `тут` as argumentative scaffolding and the physical-location instruction keeps its meaning.
+
+## Case 24: judge sentence shells by function and density
+
+- User request: "Line edit this analysis without flattening intentional emphasis."
+- Input artifact and sources: Source: `The retry limit fell from five to two, and median recovery time fell from 18 seconds to 9.` Draft: `The retry limit fell from five to two. The result? Median recovery time fell from 18 seconds to 9. That distinction matters. This changes everything. The reason? Simpler than it looks.`
+- Expected mode: Line edit.
+- Required invariants: Preserve both measured changes; allow an isolated self-answered fragment if it carries the supported result; remove or replace empty verdicts and unsupported setup-payoff shells.
+- Prohibited changes: Do not ban every short paragraph or rhetorical form, add consequences, or claim that the pattern establishes authorship.
+- Pass/fail rubric: Pass if the supported result retains appropriate emphasis without a cluster of reusable sentence shells.
+
+## Case 25: let content determine enumeration length
+
+- User request: "Copyedit this policy note and keep required options."
+- Input artifact and sources: The policy permits exactly `email, SMS, voice, or postal notice` and says only that the guide serves `professionals`. Draft: `Notice may arrive by email, SMS, voice, or postal notice. The guide helps writers, editors, designers, coders, teachers, students, founders, managers, consultants, and creators work better.`
+- Expected mode: Copyedit.
+- Required invariants: Keep all four policy options and preserve the supported audience description.
+- Prohibited changes: Do not shorten a content-required list, retain the rhythmic audience inventory, or invent narrower audience categories.
+- Pass/fail rubric: Pass if list length follows the supported content rather than a mechanical preference for short or long enumeration.
+
+## Case 26: remove crowded metaphors without weakening facts
+
+- User request: "Rewrite this technical update in direct prose."
+- Input artifact and sources: Source: `The queue buffers bursts of up to 100 events. The migration moves 12 services from host A to host B.` Draft: `The queue is our shock absorber. The migration is a bridge, compass, engine, and safety net carrying 12 services into a new home.`
+- Expected mode: Rewrite.
+- Required invariants: Preserve the queue limit, service count, source host, and destination host.
+- Prohibited changes: Do not retain the crowded or incoherent imagery, replace precise technical language mechanically, or add migration benefits.
+- Pass/fail rubric: Pass if the result states both operations concretely and every retained figure clarifies a real relation.
+
+## Case 27: replace a portable example only from supplied evidence
+
+- User request: "Rewrite this report example so it supports the finding."
+- Input artifact and sources: Source: `On 14 July, the finance team missed the 16:00 export cutoff after a timeout.` Draft: `Many teams discover that change is difficult, but challenges can become opportunities for growth.`
+- Expected mode: Rewrite.
+- Required invariants: Use the supplied date, team, cutoff, and cause if an example remains.
+- Prohibited changes: Do not invent feelings, dialogue, personal experience, consequences, or decorative detail.
+- Pass/fail rubric: Pass if the generic portable example is removed or replaced only with the specific supported incident.
+
+## Case 28: give evidence proportional structural space
+
+- User request: "Restructure this assessment around the supplied findings."
+- Input artifact and sources: The sources contain six decision-relevant deployment failures and one minor convenience benefit. The draft gives equal-length `Benefits` and `Challenges` sections and adds two unsupported benefits to complete the symmetry.
+- Expected mode: Rewrite.
+- Required invariants: Preserve all supported findings, remove unsupported benefits, and let decision relevance and evidence determine section order and length.
+- Prohibited changes: Do not force equal sections, manufacture a matched pro or con, or hide the evidence's asymmetry.
+- Pass/fail rubric: Pass if the structure reflects the supplied evidence and reader decision rather than visual balance.

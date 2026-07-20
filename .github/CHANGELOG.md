@@ -2,6 +2,25 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.0] - 2026-07-21
+
+### Added
+
+- Added an explicit boundary against inferring human or model authorship from writing-quality findings.
+- Added density guidance for self-answered fragments, empty importance verdicts, one-line punch paragraphs, and long comma-run enumerations.
+- Added checks for incoherent or crowded metaphors, portable generic examples, and section symmetry that ignores evidence or reader need.
+- Added five behavioral cases covering sentence-shell density, content-driven enumeration, metaphor coherence, portable examples, and proportional structure.
+
+### Changed
+
+- Expanded the final self-check to name sentence shells and comma lists, inspect metaphor function, require supported specific examples, and give material proportional space.
+- Added the authorship boundary to the README and skill audit contract.
+
+### Sources
+
+- [The Rise of Verbal Tics in Large Language Models](https://arxiv.org/abs/2604.19139) informed the aggregate treatment of repetitive formulaic patterns.
+- [EQ-Bench Slop Score](https://eqbench.com/slop-score.html) and Hamed Paydarfar's editorial field report, [5 Dead Giveaways You Are Reading AI-Generated Text](https://medium.com/@By.Anchorite/gpt-5-5-update-5-dead-giveaways-you-are-reading-ai-generated-text-c1076073567f), supplied comparison examples. They do not validate authorship classification; betterwords uses them only as prompts for writing-quality review.
+
 ## [2.0.3] - 2026-07-21
 
 ### Added
@@ -129,6 +148,7 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) were informed by [StoryScope](h
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[2.1.0]: https://github.com/aritusama/betterwords/releases/tag/v2.1.0
 [2.0.3]: https://github.com/aritusama/betterwords/releases/tag/v2.0.3
 [2.0.2]: https://github.com/aritusama/betterwords/releases/tag/v2.0.2
 [2.0.1]: https://github.com/aritusama/betterwords/releases/tag/v2.0.1
