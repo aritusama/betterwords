@@ -199,3 +199,12 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Preserve the observed sequence and 12% result; identify the missing causal inference and unsupported retention conclusion under rule 5.11.
 - Prohibited changes: Do not discard the supported observation, invent an alternative cause, or silently rewrite the draft.
 - Pass/fail rubric: Pass if the finding distinguishes the sourced observation from both unsupported conclusions.
+
+## Case 23: reduce repeated argument-pointing words across languages
+
+- User request: "Line edit this Ukrainian article without changing its meaning."
+- Input artifact and sources: `Тут важливо врахувати витрати. Тут ми бачимо головний ризик. Тут варто повернутися до даних. Залиште коробки тут.` The first three uses of `тут` point to the argument; the last is a physical-location instruction.
+- Expected mode: Line edit.
+- Required invariants: Apply rule 3.15 by function under rule 7.3; revise the repeated argument-pointing uses and preserve the literal location.
+- Prohibited changes: Do not ban `тут`, remove its literal use, or alter the claims.
+- Pass/fail rubric: Pass if the prose no longer repeats `тут` as argumentative scaffolding and the physical-location instruction keeps its meaning.

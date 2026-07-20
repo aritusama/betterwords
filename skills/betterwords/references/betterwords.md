@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.0.2. Last updated 2026-07-17. Stable filename: `betterwords.md`.
+Version 2.0.3. Last updated 2026-07-21. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -87,6 +87,8 @@ Severity descends in this order:
 3.13. [D] Cut stacked transitions, routine rhetorical-question pivots, fragment punches, and speech-tag cycling. Use transitions only when logic needs them; default to "said" or "says" unless another tag adds accurate meaning.
 
 3.14. [D] Watch for runs of sentences or paragraphs with the same length, opening, or syntactic shape. Vary structure only when the content calls for it; do not manufacture rhythm for its own sake.
+
+3.15. [D] Watch repeated uses of "here" that point to the writer's argument rather than a literal place, passage, interface state, or source location. Name the referent or remove the marker.
 
 ## 4. Sentence craft
 
@@ -182,7 +184,7 @@ Run checks in severity order:
 
 1. [N] Every fact, source, citation, quotation, number, example, and claim scope is supported; quoted sources are identifiable and verifiable at the artifact's required depth; uncertainty and proposed-copy status remain visible.
 2. [H] No staged negation, assistant residue, filler, inflated significance, promotional tone, false range, fake balance, synonym cycling, banned opener or heading, dangling modifier, concealed harm, or forced ending remains.
-3. [D] The aggregate density of AI-polish vocabulary, triads, staccato, comma tails, transitions, rhetorical pivots, and speech tags does not create a pattern.
+3. [D] The aggregate density of AI-polish vocabulary, triads, staccato, comma tails, transitions, rhetorical pivots, speech tags, and "here" framing does not create a pattern.
 4. [A] Punctuation, formatting, stale metaphors, nonliteral shortcuts, pseudo-candor, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
 5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure preserves useful complexity; headings, examples, and conclusions do not restate the point.
 6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
