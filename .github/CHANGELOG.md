@@ -2,6 +2,17 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.1] - 2026-07-28
+
+### Added
+
+- Added explicit examples for unsupported faux-insight setups and dramatic colon reveals while preserving contextual use of colons.
+- Added a behavioral case covering both patterns without flattening supported substance.
+
+### Changed
+
+- Made minimum-effective editing and preservation of distinctive in-draft voice explicit in the skill contract.
+
 ## [2.1.0] - 2026-07-21
 
 ### Added
@@ -148,6 +159,7 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) were informed by [StoryScope](h
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[2.1.1]: https://github.com/aritusama/betterwords/releases/tag/v2.1.1
 [2.1.0]: https://github.com/aritusama/betterwords/releases/tag/v2.1.0
 [2.0.3]: https://github.com/aritusama/betterwords/releases/tag/v2.0.3
 [2.0.2]: https://github.com/aritusama/betterwords/releases/tag/v2.0.2

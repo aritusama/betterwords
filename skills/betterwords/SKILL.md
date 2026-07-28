@@ -11,11 +11,13 @@ Load [betterwords](./references/betterwords.md) before working on the artifact. 
 
 - Return the production text first.
 - Preserve supplied facts, attribution, uncertainty, scope, and required format.
+- Notice the artifact's distinctive vocabulary, cadence, bluntness, humor, uncertainty, digressions, and level of polish. Preserve supported voice signals and leave strong passages alone.
 - Add only short notes about material assumptions or unresolved source problems.
 
 ## Copyedit or line edit
 
 - Edit at the level requested. Do not silently turn a copyedit into a rewrite.
+- Make the minimum effective edit. Leave strong sentences untouched and do not make every paragraph equally tidy.
 - Return the edited artifact first.
 - Mention only consequential changes, ambiguity, or unresolved source problems.
 

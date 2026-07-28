@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.1.0. Last updated 2026-07-21. Stable filename: `betterwords.md`.
+Version 2.1.1. Last updated 2026-07-28. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -72,7 +72,7 @@ Severity descends in this order:
 
 3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock." Use the direct claim or explanation instead.
 
-3.7. [A] Avoid stance-first pseudo-candor such as "let's be clear," "the reality is," "the truth is," "frankly," and "in all honesty" when it delays or performs conviction. State the claim and support it.
+3.7. [A] Avoid stance-first pseudo-candor and faux-insight setups such as "let's be clear," "the reality is," "the truth is," "frankly," "what nobody tells you," "the part everyone misses," and "what most people get wrong" when they delay the claim, perform conviction, or assert audience ignorance without support. State the claim and support it.
 
 3.8. [A] Avoid aphorism formulas such as "X is the language, currency, or architecture of Y" when they replace a concrete claim.
 
@@ -84,7 +84,7 @@ Severity descends in this order:
 
 3.12. [D] Watch for repeated comma-tail sentences: independent clause, comma, tagged-on phrase, especially tails beginning "highlighting," "ensuring," "reflecting," "with," or "such as." One may work; repeated tails make the rhythm mechanical. Cut an empty tail or make a substantive thought its own sentence.
 
-3.13. [D] Watch repeated sentence shells used as default emphasis: routine rhetorical-question pivots, self-answered fragments, isolated verdicts such as "That distinction matters" or "This changes everything," and one-line punch paragraphs that add no consequence. One may work when it carries new information or earns the rhythm break; clusters flatten emphasis. Cut stacked transitions and speech-tag cycling. Use transitions only when logic needs them; default to "said" or "says" unless another tag adds accurate meaning.
+3.13. [D] Watch repeated sentence shells used as default emphasis: routine rhetorical-question pivots, self-answered fragments, dramatic colon reveals such as "The best part: it learns," isolated verdicts such as "That distinction matters" or "This changes everything," and one-line punch paragraphs that add no consequence. One may work when it carries new information or earns the rhythm break; clusters flatten emphasis. Use colons for real grammatical relations, lists, labels, and quotations, not automatic drama. Cut stacked transitions and speech-tag cycling. Use transitions only when logic needs them; default to "said" or "says" unless another tag adds accurate meaning.
 
 3.14. [D] Watch for runs of sentences or paragraphs with the same length, opening, or syntactic shape. Vary structure only when the content calls for it; do not manufacture rhythm for its own sake.
 

@@ -253,3 +253,12 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Preserve all supported findings, remove unsupported benefits, and let decision relevance and evidence determine section order and length.
 - Prohibited changes: Do not force equal sections, manufacture a matched pro or con, or hide the evidence's asymmetry.
 - Pass/fail rubric: Pass if the structure reflects the supplied evidence and reader decision rather than visual balance.
+
+## Case 29: remove faux insight and dramatic colon reveals by function
+
+- User request: "Line edit this post without flattening its voice."
+- Input artifact and sources: Source: `The retry limit fell from five to two, and median recovery time fell from 18 seconds to 9.` Draft: `What nobody tells you about the retry change: the best part: median recovery time fell from 18 seconds to 9.`
+- Expected mode: Line edit.
+- Required invariants: Preserve the measured recovery-time change and the author's direct register.
+- Prohibited changes: Do not retain unsupported audience-ignorance framing, use the colon as automatic drama, infer authorship, or rewrite the supported result into generic prose.
+- Pass/fail rubric: Pass if the result states the measured change directly, removes the faux-insight setup and dramatic colon reveal, and leaves the supported substance intact.
