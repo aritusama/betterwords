@@ -262,3 +262,12 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Preserve the measured recovery-time change and the author's direct register.
 - Prohibited changes: Do not retain unsupported audience-ignorance framing, use the colon as automatic drama, infer authorship, or rewrite the supported result into generic prose.
 - Pass/fail rubric: Pass if the result states the measured change directly, removes the faux-insight setup and dramatic colon reveal, and leaves the supported substance intact.
+
+## Case 30: structure procedure actions by function
+
+- User request: "Copyedit this procedure without changing its operation."
+- Input artifact and sources: `1. Press TEST and record the displayed value. 2. Hold CLAMP and press RESET at the same time. Note: If the pressure exceeds 50 psi, close valve V1.` The first step contains sequential actions, the second contains simultaneous actions, and the note contains a required conditional action.
+- Expected mode: Copyedit.
+- Required invariants: Give the two sequential actions separate numbered steps; keep the simultaneous actions together; move the required action out of the note; put its pressure condition before the command; preserve the controls, threshold, valve identifier, and operation order.
+- Prohibited changes: Do not split actions that must occur at the same time, leave a required action inside a note, change the pressure threshold, or invent safety claims.
+- Pass/fail rubric: Pass if each independent action is a step, the simultaneous pair remains together, and the conditional command is no longer hidden in a note.

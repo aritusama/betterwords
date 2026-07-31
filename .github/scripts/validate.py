@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.1.1"
+VERSION = "2.1.2"
 
 
 def require(condition: bool, message: str) -> None:
@@ -106,6 +106,7 @@ for fixture in (
     'generic copywriting scene-setters',
     'Let the material, evidence, and reader questions determine section order and length.',
     '6.11. [C] Check the title for a generic formula.',
+    '6.12. [C] In procedures, give each independent action its own numbered step.',
     '7.1. [C] Write as a competent native writer of the requested language and locale',
     '7.2. [C] Preserve a supplied non-native, dialectal, regional, or mixed-language voice',
     'Translate quotations faithfully and idiomatically, for sense rather than word-for-word form',
@@ -184,7 +185,7 @@ require(marketplace["plugins"][0]["source"]["path"] == "./", "Marketplace must l
 require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"], "Empty screenshots field remains")
 
 evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
-require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 29, "Expected 29 behavioral cases")
+require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 30, "Expected 30 behavioral cases")
 for field in (
     "User request:",
     "Input artifact and sources:",
@@ -193,7 +194,7 @@ for field in (
     "Prohibited changes:",
     "Pass/fail rubric:",
 ):
-    require(evals.count(field) == 29, f"Every evaluation needs {field}")
+    require(evals.count(field) == 30, f"Every evaluation needs {field}")
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 for source in ("AP Stylebook", "Chicago Manual of Style"):

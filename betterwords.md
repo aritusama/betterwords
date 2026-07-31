@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.1.1. Last updated 2026-07-28. Stable filename: `betterwords.md`.
+Version 2.1.2. Last updated 2026-07-31. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -156,6 +156,8 @@ Severity descends in this order:
 
 6.11. [C] Check the title for a generic formula. Use a question, numbered promise, colon construction, or "The hidden cost of X" frame only when it states the artifact's actual subject or claim.
 
+6.12. [C] In procedures, give each independent action its own numbered step. Keep actions together when they must occur at the same time. Put prerequisites and conditions before the command. Keep notes informational; do not hide required actions inside them.
+
 ## 7. Multilingual rules
 
 7.1. [C] Write as a competent native writer of the requested language and locale, not as though an English draft had been translated. Build sentences, paragraphs, emphasis, and argument in the target language's natural syntax and discourse habits. Avoid source-language calques, imported sentence shapes, and imported rhetorical structure.
@@ -187,7 +189,7 @@ Run checks in severity order:
 3. [D] The aggregate density of AI-polish vocabulary, sentence shells, triads, staccato, comma lists and tails, transitions, rhetorical pivots, speech tags, and "here" framing does not create a pattern.
 4. [A] Punctuation, formatting, metaphors, nonliteral shortcuts, pseudo-candor, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
 5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure gives material proportional space and preserves useful complexity; examples are specific and supported; headings and conclusions do not restate the point.
-6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
+6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Procedures separate independent actions, preserve simultaneous actions, put conditions before commands, and keep notes informational. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
 7. [C] Rewrites preserve meaning and evidence while replacing the original phrasing and structure where needed.
 8. [C] Read once for any sentence that is correct but avoidably awkward, overly even, or mechanically assembled. Revise only defects you can name.
 9. End when done.

@@ -2,6 +2,17 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.2] - 2026-07-31
+
+### Added
+
+- Added contextual procedure guidance for independent steps, simultaneous actions, conditions, and informational notes.
+- Added a behavioral case that distinguishes sequential actions, simultaneous actions, and instructions hidden in notes.
+
+### Sources
+
+- [ASD-STE100 Simplified Technical English, Issue 9](https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf) informed the procedure rule. Betterwords does not replace the full standard or controlled dictionary and does not claim STE compliance.
+
 ## [2.1.1] - 2026-07-28
 
 ### Added
