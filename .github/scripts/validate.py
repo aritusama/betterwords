@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.1.2"
+VERSION = "2.1.3"
 
 
 def require(condition: bool, message: str) -> None:
@@ -104,6 +104,7 @@ for fixture in (
     '6.1. [C] Match the artifact.',
     '6.2. [C] When an author sample or baseline is supplied',
     'generic copywriting scene-setters',
+    'Do not substitute a manufactured-recognition lead:',
     'Let the material, evidence, and reader questions determine section order and length.',
     '6.11. [C] Check the title for a generic formula.',
     '6.12. [C] In procedures, give each independent action its own numbered step.',
@@ -185,7 +186,7 @@ require(marketplace["plugins"][0]["source"]["path"] == "./", "Marketplace must l
 require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"], "Empty screenshots field remains")
 
 evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
-require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 30, "Expected 30 behavioral cases")
+require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 31, "Expected 31 behavioral cases")
 for field in (
     "User request:",
     "Input artifact and sources:",
@@ -194,7 +195,7 @@ for field in (
     "Prohibited changes:",
     "Pass/fail rubric:",
 ):
-    require(evals.count(field) == 30, f"Every evaluation needs {field}")
+    require(evals.count(field) == 31, f"Every evaluation needs {field}")
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 for source in ("AP Stylebook", "Chicago Manual of Style"):

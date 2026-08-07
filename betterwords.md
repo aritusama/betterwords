@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.1.2. Last updated 2026-07-31. Stable filename: `betterwords.md`.
+Version 2.1.3. Last updated 2026-08-08. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -138,7 +138,7 @@ Severity descends in this order:
 
 6.2. [C] When an author sample or baseline is supplied, match its register and habits. Do not normalize it toward generic professional prose or invent a persona without evidence.
 
-6.3. [H] Do not open with generic copywriting scene-setters such as "In today's world," "In an era of," "With the rapid development of," "Whether you're X or Y," or "When it comes to." Open with a fact, tension, claim, or scene.
+6.3. [H] Do not open with generic copywriting scene-setters such as "In today's world," "In an era of," "With the rapid development of," "Whether you're X or Y," or "When it comes to." Do not substitute a manufactured-recognition lead: an interchangeable catalogue of familiar products, tasks, or frustrations whose main job is to signal "you know this problem," followed by escalating consequences and a promise that the piece will provide relief. Concrete nouns do not make the opening specific when swapping them leaves the same persuasive movement intact. Open with the claim, evidence, event, decision, or an observed scene whose details matter to the argument.
 
 6.4. [C] Do not pre-summarize the whole piece unless the format requires an executive summary.
 

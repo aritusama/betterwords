@@ -271,3 +271,12 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Give the two sequential actions separate numbered steps; keep the simultaneous actions together; move the required action out of the note; put its pressure condition before the command; preserve the controls, threshold, valve identifier, and operation order.
 - Prohibited changes: Do not split actions that must occur at the same time, leave a required action inside a note, change the pressure threshold, or invent safety claims.
 - Pass/fail rubric: Pass if each independent action is a step, the simultaneous pair remains together, and the conditional command is no longer hidden in a note.
+
+## Case 31: reject a manufactured-recognition lead by function
+
+- User request: "Audit these two opening options with betterwords without rewriting them."
+- Input artifact and sources: Source: `Three source systems deliver CSV, JSON, and Parquet files. A missing transformation record prevented the finance team from reproducing the 14 July dashboard.` Option A: `A CSV arrives from one system, JSON from another, Parquet from somewhere else. You know how it goes: soon nobody knows what to trust. This guide will put you back in control.` Option B: `The finance team could not reproduce the 14 July dashboard because its transformation record was missing.`
+- Expected mode: Audit.
+- Required invariants: Flag Option A under rule 6.3 as a manufactured-recognition lead; explain that its catalogue, presumed shared experience, escalation, and relief promise perform a portable persuasive sequence; preserve Option B as a specific supported incident.
+- Prohibited changes: Do not infer human or model authorship, reject every list or problem-led opening, weaken the supported incident, or return silently rewritten options.
+- Pass/fail rubric: Pass if the audit identifies Option A's rhetorical function, accepts Option B's evidence-bearing scene, and proposes a concise claim-first correction without adding facts.

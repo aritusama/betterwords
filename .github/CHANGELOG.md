@@ -2,6 +2,16 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.3] - 2026-08-08
+
+### Added
+
+- Added a behavioral case that distinguishes a manufactured-recognition lead from a supported observed incident.
+
+### Changed
+
+- Expanded rule 6.3 to reject interchangeable catalogues and presumed shared problems used to manufacture reader recognition before presenting the piece as relief.
+
 ## [2.1.2] - 2026-07-31
 
 ### Added
