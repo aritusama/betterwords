@@ -1,7 +1,7 @@
 {
   "name": "betterwords",
   "displayName": "betterwords",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "Source-respecting writing rules for durable text artifacts.",
   "author": {
     "name": "aritusama",

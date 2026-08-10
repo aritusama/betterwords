@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.1.3. Last updated 2026-08-08. Stable filename: `betterwords.md`.
+Version 2.1.4. Last updated 2026-08-11. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -72,7 +72,7 @@ Severity descends in this order:
 
 3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock." Use the direct claim or explanation instead.
 
-3.7. [A] Avoid stance-first pseudo-candor and faux-insight setups such as "let's be clear," "the reality is," "the truth is," "frankly," "what nobody tells you," "the part everyone misses," and "what most people get wrong" when they delay the claim, perform conviction, or assert audience ignorance without support. State the claim and support it.
+3.7. [A] Avoid stance-first pseudo-candor, faux insight, and false-suspense setups such as "let's be clear," "the reality is," "the truth is," "frankly," "what nobody tells you," "the part everyone misses," "what most people get wrong," "here's the thing," "here's the kicker," and "here's where it gets interesting" when they delay the claim, perform conviction, promise an unearned revelation, or assert audience ignorance without support. State the claim and support it.
 
 3.8. [A] Avoid aphorism formulas such as "X is the language, currency, or architecture of Y" when they replace a concrete claim.
 
@@ -98,7 +98,7 @@ Severity descends in this order:
 
 4.3. [A] Cut needless words and needless negation: "because" instead of "due to the fact that," "to" instead of "in order to," and "common" instead of "not uncommon," unless the hedge matters.
 
-4.4. [A] Prefer specific nouns, verbs, measurements, and observed behavior over adjective or adverb padding. Replace vague judgments such as "amazing," "impressive," "powerful," and "intuitive" with what earns the judgment.
+4.4. [A] Prefer specific nouns, verbs, measurements, and observed behavior over adjective or adverb padding. Adverbs such as "quietly," "deeply," "fundamentally," and "remarkably" often compress a claim about visibility, degree, scope, or significance. State that claim when it matters; keep the adverb when it names a concrete, supported condition. Replace vague judgments such as "amazing," "impressive," "powerful," and "intuitive" with what earns the judgment.
 
 4.5. [A] Cut or quantify "basically," "kind of," "somewhat," and similar softeners when they carry no real degree or source uncertainty. Preserve meaningful hedges.
 
@@ -128,9 +128,11 @@ Severity descends in this order:
 
 5.9. [C] In change-driven documentation, write from the diff. Separate what changed from what remains true, and include baseline material only when needed.
 
-5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement. Cut sentences that only rephrase what the reader already knows.
+5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement. Check paragraphs and sections too: remove exact or near-duplicate passages and repeated points unless repetition serves a defined rhetorical, navigational, or reference function. Rephrasing the same point does not make it new.
 
 5.11. [C] Test the argument as well as the prose. Each conclusion must follow from the stated premises and evidence; do not let fluent transitions hide a missing step, contradiction, or unsupported causal link.
+
+5.12. [C] Do not let a coined label replace analysis. Define the term, show the observed pattern it names, and distinguish it from established terminology. Clusters of labels ending in words such as "paradox," "trap," "divide," "creep," or "vacuum" are a warning, not a word ban. Keep a label when it is defined, useful, and supported.
 
 ## 6. Register and structure
 
@@ -187,8 +189,8 @@ Run checks in severity order:
 1. [N] Every fact, source, citation, quotation, number, example, and claim scope is supported; quoted sources are identifiable and verifiable at the artifact's required depth; uncertainty and proposed-copy status remain visible.
 2. [H] No staged negation, assistant residue, filler, inflated significance, promotional tone, false range, fake balance, synonym cycling, banned opener or heading, dangling modifier, concealed harm, or forced ending remains.
 3. [D] The aggregate density of AI-polish vocabulary, sentence shells, triads, staccato, comma lists and tails, transitions, rhetorical pivots, speech tags, and "here" framing does not create a pattern.
-4. [A] Punctuation, formatting, metaphors, nonliteral shortcuts, pseudo-candor, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
-5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure gives material proportional space and preserves useful complexity; examples are specific and supported; headings and conclusions do not restate the point.
+4. [A] Punctuation, formatting, metaphors, nonliteral shortcuts, pseudo-candor, false suspense, compressed adverb claims, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
+5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure gives material proportional space and preserves useful complexity; examples are specific and supported; repeated substance is removed unless it has a defined function; coined labels do not replace analysis; headings and conclusions do not restate the point.
 6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Procedures separate independent actions, preserve simultaneous actions, put conditions before commands, and keep notes informational. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
 7. [C] Rewrites preserve meaning and evidence while replacing the original phrasing and structure where needed.
 8. [C] Read once for any sentence that is correct but avoidably awkward, overly even, or mechanically assembled. Revise only defects you can name.

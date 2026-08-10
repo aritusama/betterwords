@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.1.3"
+VERSION = "2.1.4"
 
 
 def require(condition: bool, message: str) -> None:
@@ -90,7 +90,10 @@ for fixture in (
     '3.12. [D] Watch for repeated comma-tail sentences',
     '3.13. [D] Watch repeated sentence shells used as default emphasis',
     '"what nobody tells you,"',
+    'false-suspense setups such as',
+    'promise an unearned revelation',
     'dramatic colon reveals such as "The best part: it learns,"',
+    'Adverbs such as "quietly," "deeply," "fundamentally," and "remarkably"',
     '4.6. [A] Turn nominalizations back into verbs.',
     '4.7. [A] Avoid jargon, acronyms, foreign phrases, and technical terms',
     'Do not let familiar phrases generate the thought.',
@@ -100,7 +103,9 @@ for fixture in (
     'Each paragraph should advance the argument, not restate or redefine it.',
     '5.9. [C] In change-driven documentation, write from the diff.',
     '5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement.',
+    'Check paragraphs and sections too: remove exact or near-duplicate passages and repeated points',
     '5.11. [C] Test the argument as well as the prose.',
+    '5.12. [C] Do not let a coined label replace analysis.',
     '6.1. [C] Match the artifact.',
     '6.2. [C] When an author sample or baseline is supplied',
     'generic copywriting scene-setters',
@@ -186,7 +191,8 @@ require(marketplace["plugins"][0]["source"]["path"] == "./", "Marketplace must l
 require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"], "Empty screenshots field remains")
 
 evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
-require(len(re.findall(r"^## Case \d+:", evals, re.MULTILINE)) == 31, "Expected 31 behavioral cases")
+case_numbers = [int(number) for number in re.findall(r"^## Case (\d+):", evals, re.MULTILINE)]
+require(case_numbers == list(range(1, 36)), "Behavioral cases must run from 1 through 35")
 for field in (
     "User request:",
     "Input artifact and sources:",
@@ -195,9 +201,15 @@ for field in (
     "Prohibited changes:",
     "Pass/fail rubric:",
 ):
-    require(evals.count(field) == 31, f"Every evaluation needs {field}")
+    require(evals.count(field) == 35, f"Every evaluation needs {field}")
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
+changelog = (ROOT / ".github/CHANGELOG.md").read_text(encoding="utf-8")
+for relative, document in (("README.md", readme), (".github/CHANGELOG.md", changelog)):
+    require(
+        "[Tropes directory](https://tropes.fyi/directory)" in document,
+        f"Missing Tropes inspiration credit in {relative}",
+    )
 for source in ("AP Stylebook", "Chicago Manual of Style"):
     require(source.casefold() not in rules.casefold(), f"Core rules mention optional authority: {source}")
     require(source.casefold() not in readme.casefold(), f"README mentions optional authority: {source}")

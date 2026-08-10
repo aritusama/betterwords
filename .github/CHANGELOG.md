@@ -2,6 +2,24 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.4] - 2026-08-11
+
+### Added
+
+- Added rule 5.12 to distinguish useful defined terms from coined labels that replace analysis.
+- Added behavioral cases for compressed significance adverbs, coined labels, repeated substance across an artifact, and historical analogies used as accumulated proof.
+
+### Changed
+
+- Expanded rule 3.7 to cover false-suspense setups that delay a claim or promise an unearned revelation.
+- Expanded rule 4.4 to treat significance adverbs as contextual claims rather than banned words while preserving concrete manner and supported degree.
+- Expanded rule 5.10 to inspect repeated substance across sentences, paragraphs, and sections while preserving repetition with a defined function.
+- Expanded the faux-insight evaluation to include false-suspense variants.
+
+### Sources
+
+- The [Tropes directory](https://tropes.fyi/directory) inspired the false-suspense, significance-adverb, coined-label, repeated-substance, and historical-analogy checks. Betterwords reworked these observations as contextual writing-quality rules and does not use them to infer authorship.
+
 ## [2.1.3] - 2026-08-08
 
 ### Added
@@ -180,6 +198,9 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) were informed by [StoryScope](h
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[2.1.4]: https://github.com/aritusama/betterwords/releases/tag/v2.1.4
+[2.1.3]: https://github.com/aritusama/betterwords/releases/tag/v2.1.3
+[2.1.2]: https://github.com/aritusama/betterwords/releases/tag/v2.1.2
 [2.1.1]: https://github.com/aritusama/betterwords/releases/tag/v2.1.1
 [2.1.0]: https://github.com/aritusama/betterwords/releases/tag/v2.1.0
 [2.0.3]: https://github.com/aritusama/betterwords/releases/tag/v2.0.3

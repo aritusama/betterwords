@@ -254,14 +254,14 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Prohibited changes: Do not force equal sections, manufacture a matched pro or con, or hide the evidence's asymmetry.
 - Pass/fail rubric: Pass if the structure reflects the supplied evidence and reader decision rather than visual balance.
 
-## Case 29: remove faux insight and dramatic colon reveals by function
+## Case 29: remove faux insight, false suspense, and dramatic colon reveals by function
 
 - User request: "Line edit this post without flattening its voice."
-- Input artifact and sources: Source: `The retry limit fell from five to two, and median recovery time fell from 18 seconds to 9.` Draft: `What nobody tells you about the retry change: the best part: median recovery time fell from 18 seconds to 9.`
+- Input artifact and sources: Source: `The retry limit fell from five to two, and median recovery time fell from 18 seconds to 9.` Draft: `What nobody tells you about the retry change. Here's the kicker: the best part: median recovery time fell from 18 seconds to 9.`
 - Expected mode: Line edit.
 - Required invariants: Preserve the measured recovery-time change and the author's direct register.
-- Prohibited changes: Do not retain unsupported audience-ignorance framing, use the colon as automatic drama, infer authorship, or rewrite the supported result into generic prose.
-- Pass/fail rubric: Pass if the result states the measured change directly, removes the faux-insight setup and dramatic colon reveal, and leaves the supported substance intact.
+- Prohibited changes: Do not retain unsupported audience-ignorance framing, false suspense, or automatic colon drama; infer authorship; or rewrite the supported result into generic prose.
+- Pass/fail rubric: Pass if the result states the measured change directly, removes the faux-insight setup, false-suspense setup, and dramatic colon reveal, and leaves the supported substance intact.
 
 ## Case 30: structure procedure actions by function
 
@@ -280,3 +280,39 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Flag Option A under rule 6.3 as a manufactured-recognition lead; explain that its catalogue, presumed shared experience, escalation, and relief promise perform a portable persuasive sequence; preserve Option B as a specific supported incident.
 - Prohibited changes: Do not infer human or model authorship, reject every list or problem-led opening, weaken the supported incident, or return silently rewritten options.
 - Pass/fail rubric: Pass if the audit identifies Option A's rhetorical function, accepts Option B's evidence-bearing scene, and proposes a concise claim-first correction without adding facts.
+
+## Case 32: judge significance adverbs by function
+
+- User request: "Audit these sentences with betterwords without rewriting them."
+- Input artifact and sources: Source packet: `The fan measured 22 dBA. The company removed its price page without a public notice or changelog entry. Two interpretations remain possible; the second accounts for both supplied measurements, while the first accounts for one. No source establishes an industry transformation or broader importance.` Sentences: A: `The policy quietly transformed the industry.` B: `The fan ran quietly at 22 dBA.` C: `The company quietly removed the price page; it issued no notice, and the changelog omitted the change.` D: `The second interpretation is arguably stronger because it accounts for both measurements.` E: `This is arguably a remarkably important development.`
+- Expected mode: Audit.
+- Required invariants: Flag A and E under rule 4.4 because their adverbs compress unsupported claims; preserve B as measurable manner, C as supported low visibility, and D as a meaningful hedge under rule 4.5.
+- Prohibited changes: Do not ban `quietly`, `remarkably`, `arguably`, or adverbs as a class; remove supported uncertainty; infer authorship; or return silently rewritten sentences.
+- Pass/fail rubric: Pass if the audit distinguishes unsupported significance from concrete manner, supported visibility, and meaningful epistemic qualification.
+
+## Case 33: distinguish coined labels from useful terms
+
+- User request: "Audit these three explanations for conceptual clarity without rewriting them."
+- Input artifact and sources: Source packet: `Approval time rose from two to nine days after a second review step, and queue length doubled. Retry error rates were 2%, 3%, and 4% through the third attempt, then 19% on the fourth. The team defines retry cliff as the measured jump after the third retry. Backpressure describes the system reducing intake when consumer lag exceeds 500 messages.` A: `The approval-latency paradox created a trust vacuum and an execution divide.` B: `We call the measured error-rate jump after the third retry the retry cliff.` C: `Backpressure reduced intake when consumer lag exceeded 500 messages.`
+- Expected mode: Audit.
+- Required invariants: Flag A under rule 5.12 because its label cluster replaces the observed pattern and mechanism; preserve B because the local term is defined and supported; preserve C as an established technical term used precisely.
+- Prohibited changes: Do not ban words ending in `paradox`, `trap`, `divide`, `creep`, or `vacuum`; reject every locally coined term; replace precise terminology with vague plain language; or infer authorship.
+- Pass/fail rubric: Pass if the audit judges labels by definition, analytical use, and support rather than vocabulary alone.
+
+## Case 34: remove repeated substance across an artifact
+
+- User request: "Audit this report section for repetition without rewriting it."
+- Input artifact and sources: Required format: `Include a one-sentence executive summary.` Source: `In a 30-day comparison, median export time fell from 12 minutes to 7.` Draft: `Executive summary: Median export time fell from 12 minutes to 7. Results: In the 30-day comparison, median export time fell from 12 minutes to 7. Discussion: Exports are now five minutes faster at the median. Conclusion: The migration shortened median export time from 12 minutes to 7.`
+- Expected mode: Audit.
+- Required invariants: Preserve the required executive summary and one evidence-bearing body statement; flag the discussion and conclusion restatements under rule 5.10 unless they add interpretation, qualification, or consequence.
+- Prohibited changes: Do not remove all repetition mechanically, delete required navigation, invent consequences, infer authorship, or return a silently rewritten report.
+- Pass/fail rubric: Pass if the audit distinguishes repetition with a defined format function from near-duplicate passages that add no information or movement.
+
+## Case 35: reject historical analogy accumulation as proof
+
+- User request: "Audit the argument in this launch note without rewriting it."
+- Input artifact and sources: The supplied source packet supports the three precedent descriptions and states that the current product has 200 beta users, but it contains no adoption forecast or evidence that the products share relevant market conditions. Draft: `AWS began with infrastructure services. Slack grew from an internal tool. Instagram launched with a narrow photo-sharing scope. Our product will follow the same path and become the category standard.`
+- Expected mode: Audit.
+- Required invariants: Preserve sourced precedent facts as possible illustrations; flag the prediction under rule 5.11 because accumulated analogies do not establish comparable conditions, causation, or inevitability.
+- Prohibited changes: Do not treat the number or fame of examples as proof, invent shared conditions, discard every analogy, infer authorship, or silently rewrite the launch note.
+- Pass/fail rubric: Pass if the audit separates supported precedent descriptions from the unsupported generalization and predictive conclusion.
