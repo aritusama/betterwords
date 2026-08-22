@@ -2,6 +2,17 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.5] - 2026-08-23
+
+### Added
+
+- Added behavioral cases for structural habits in supplied baselines and punch-first secondary-detail openings.
+
+### Changed
+
+- Expanded rule 6.2 to cover evidenced structural habits as well as register when a baseline is supplied.
+- Expanded rule 6.3 with a move-down test for secondary details promoted to the opening chiefly for punch, surprise, or delayed reveal.
+
 ## [2.1.4] - 2026-08-11
 
 ### Added
@@ -198,6 +209,7 @@ The structural rules (6.7 to 6.10, 7.10 to 7.12) were informed by [StoryScope](h
 
 First public release. Truth and sourcing rules, hard-banned patterns, default-avoid patterns, density warnings, sentence craft, thought and composition, register and structure, multilingual rules, a rewriting section with a hard ban on detector evasion, and a final self-check.
 
+[2.1.5]: https://github.com/aritusama/betterwords/releases/tag/v2.1.5
 [2.1.4]: https://github.com/aritusama/betterwords/releases/tag/v2.1.4
 [2.1.3]: https://github.com/aritusama/betterwords/releases/tag/v2.1.3
 [2.1.2]: https://github.com/aritusama/betterwords/releases/tag/v2.1.2

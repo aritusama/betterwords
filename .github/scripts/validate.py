@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.1.4"
+VERSION = "2.1.5"
 
 
 def require(condition: bool, message: str) -> None:
@@ -108,8 +108,12 @@ for fixture in (
     '5.12. [C] Do not let a coined label replace analysis.',
     '6.1. [C] Match the artifact.',
     '6.2. [C] When an author sample or baseline is supplied',
+    'match its structural habits as well as its register',
     'generic copywriting scene-setters',
     'Do not substitute a manufactured-recognition lead:',
+    'Do not promote a secondary detail, number, feature, quotation, or scene to the opening',
+    'Apply the move-down test:',
+    'Open with the central claim, evidence, event, decision',
     'Let the material, evidence, and reader questions determine section order and length.',
     '6.11. [C] Check the title for a generic formula.',
     '6.12. [C] In procedures, give each independent action its own numbered step.',
@@ -192,7 +196,7 @@ require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"]
 
 evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
 case_numbers = [int(number) for number in re.findall(r"^## Case (\d+):", evals, re.MULTILINE)]
-require(case_numbers == list(range(1, 36)), "Behavioral cases must run from 1 through 35")
+require(case_numbers == list(range(1, 38)), "Behavioral cases must run from 1 through 37")
 for field in (
     "User request:",
     "Input artifact and sources:",
@@ -201,7 +205,7 @@ for field in (
     "Prohibited changes:",
     "Pass/fail rubric:",
 ):
-    require(evals.count(field) == 35, f"Every evaluation needs {field}")
+    require(evals.count(field) == 37, f"Every evaluation needs {field}")
 
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 changelog = (ROOT / ".github/CHANGELOG.md").read_text(encoding="utf-8")

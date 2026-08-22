@@ -316,3 +316,21 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Preserve sourced precedent facts as possible illustrations; flag the prediction under rule 5.11 because accumulated analogies do not establish comparable conditions, causation, or inevitability.
 - Prohibited changes: Do not treat the number or fame of examples as proof, invent shared conditions, discard every analogy, infer authorship, or silently rewrite the launch note.
 - Pass/fail rubric: Pass if the audit separates supported precedent descriptions from the unsupported generalization and predictive conclusion.
+
+## Case 36: match structural habits in a supplied baseline
+
+- User request: "Audit this opening against the supplied author baseline without rewriting it."
+- Input artifact and sources: Source: `The Meridian M4 is a 14-inch laptop. In the supplied battery test, it averaged 11 hours.` Baseline A: `The Northstar S2 is a 13-inch laptop for field technicians. Its battery lasted 9 hours in the supplied test.` Baseline B: `The Vector Mini is a compact workstation for video editing. It completed the supplied render in 7 minutes.` Both baseline openings identify the subject in the first sentence and then present the measurement. Draft: `Battery life averaged 11 hours in the supplied test. The Meridian M4 is a 14-inch laptop.`
+- Expected mode: Audit.
+- Required invariants: Flag the draft under rule 6.2 because it matches the baseline's direct register but reverses its consistent subject-first structural habit; preserve the supplied product description and measurement.
+- Prohibited changes: Do not reject evidence-led openings as a class, claim that rule 6.3 independently bans the draft, invent additional baseline habits, infer authorship, or return a silently rewritten opening.
+- Pass/fail rubric: Pass if the audit identifies a structural baseline mismatch rather than a tone mismatch and explains that the same opening could be valid without the supplied baseline.
+
+## Case 37: reject a punch-first secondary-detail opening by function
+
+- User request: "Audit these three opening options with betterwords without rewriting them."
+- Input artifact and sources: Source: `The Aster 32 monitor replaces the dedicated adaptive-sync module used in the Aster 27 with a standards-based controller, which removes the need for an internal cooling fan. The cable opening in the stand is 6 mm wider. The source gives the wider opening no functional significance.` Option A: `The cable opening is 6 mm wider. It is the first visible difference on this monitor. The monitor is the Aster 32, which replaces its predecessor's dedicated adaptive-sync module with a standards-based controller and no longer needs an internal cooling fan.` Option B: `The Aster 32 replaces its predecessor's dedicated adaptive-sync module with a standards-based controller, removing the need for an internal cooling fan.` Option C: `The Aster 32 has no internal cooling fan because its dedicated adaptive-sync module has been replaced with a standards-based controller.`
+- Expected mode: Audit.
+- Required invariants: Flag Option A under rule 6.3 because it promotes a supported but secondary measurement chiefly for punch and delayed identification; apply the move-down test and preserve Options B and C because their opening details carry the central supported change.
+- Prohibited changes: Do not ban numbers, product details, or detail-led openings as classes; weaken the supported module and fan claims; infer authorship; or return silently rewritten options.
+- Pass/fail rubric: Pass if the audit distinguishes a secondary-detail kicker from claim-bearing specificity and permits an earned concrete opening.
