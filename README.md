@@ -50,6 +50,12 @@ Use betterwords to copyedit this release note without changing supported facts.
 Use betterwords to audit this draft for quality.
 ```
 
+Before starting, read the complete rule file, including the operating notes, all 72 numbered rules, and final self-check. Recover any missing or truncated portions first. Consider every rule, apply it according to the task and format while composing, then review the complete deliverable against the full guidance. Keep the existing rule IDs when referring to findings.
+
+The deliverable is the requested writing or editorial review. Betterwords requires contextual judgment about the actual text. Package validation and mechanical checks cannot establish editorial compliance, and a reading record cannot prove understanding. The [behavioral cases](.github/evals/cases.md) are maintainer review scenarios for observing this behavior across models.
+
+The optional [editorial examples](skills/betterwords/references/editorial-examples.md) show when to preserve phrasing, paraphrase a source, retain required formats, or leave a clean draft unchanged.
+
 Betterwords is a writing-quality system. It cannot determine whether a person or model wrote a text. Do not use it to label authorship, evade required disclosure, or fabricate sources, quotations, experience, or evidence.
 
 ## Sources and influences

@@ -1,233 +1,126 @@
+"""Validate package integrity. Editorial quality and model behavior require review."""
+
 from __future__ import annotations
 
 import json
 import re
 from pathlib import Path
-
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.1.5"
+VERSION = "2.1.6"
+# One severity per existing rule, in section/item order. No wording assertions.
+RULE_SEVERITIES = {
+    1: "NNNNNNC", 2: "HHHHHHHHH", 3: "AAAAAAAAADDDDDD", 4: "AAAAAAAH",
+    5: "CCCCCCCCCCCC", 6: "CCHCHHHCACCC", 7: "CCCNC", 8: "HCCC",
+}
+REQUIRED = (
+    "README.md", ".github/CHANGELOG.md", "LICENSE", "betterwords.md",
+    "gemini-extension.json", "plugin.json", ".agents/plugins/marketplace.json",
+    ".codex-plugin/plugin.json", ".claude-plugin/plugin.json",
+    ".claude-plugin/marketplace.json", ".github/platforms/common-instructions.md",
+    ".github/platforms/chatgpt.md", ".github/platforms/claude.md",
+    ".github/platforms/gemini.md", ".github/platforms/github-copilot.md",
+    ".github/platforms/github-copilot/copilot-instructions.md",
+    ".github/assets/betterwords-2.0.0.png", "skills/betterwords/SKILL.md",
+    "skills/betterwords/agents/openai.yaml", ".github/evals/cases.md",
+    "skills/betterwords/references/betterwords.md",
+    "skills/betterwords/references/editorial-examples.md",
+)
 
 
 def require(condition: bool, message: str) -> None:
     if not condition:
-        raise SystemExit(message)
+        raise ValueError(message)
 
 
-required = [
-    "README.md",
-    ".github/CHANGELOG.md",
-    "LICENSE",
-    "betterwords.md",
-    "gemini-extension.json",
-    "plugin.json",
-    ".agents/plugins/marketplace.json",
-    ".codex-plugin/plugin.json",
-    ".claude-plugin/plugin.json",
-    ".claude-plugin/marketplace.json",
-    ".github/platforms/common-instructions.md",
-    ".github/platforms/chatgpt.md",
-    ".github/platforms/claude.md",
-    ".github/platforms/gemini.md",
-    ".github/platforms/github-copilot.md",
-    ".github/assets/betterwords-2.0.0.png",
-    "skills/betterwords/SKILL.md",
-    "skills/betterwords/agents/openai.yaml",
-    ".github/evals/cases.md",
-    "skills/betterwords/references/betterwords.md",
-]
-for relative in required:
-    require((ROOT / relative).is_file(), f"Missing required file: {relative}")
+def local_path(root: Path, value: str, owner: str) -> Path:
+    require(isinstance(value, str) and bool(value), f"Missing local path in {owner}")
+    require(not urlsplit(value).scheme, f"Expected local path in {owner}: {value}")
+    target = (root / value).resolve()
+    require(target.is_relative_to(root.resolve()), f"Path escapes package in {owner}: {value}")
+    require(target.exists(), f"Missing local path in {owner}: {value}")
+    return target
 
-json_files = [
-    "gemini-extension.json",
-    "plugin.json",
-    ".agents/plugins/marketplace.json",
-    ".codex-plugin/plugin.json",
-    ".claude-plugin/plugin.json",
-    ".claude-plugin/marketplace.json",
-]
-documents = {
-    relative: json.loads((ROOT / relative).read_text(encoding="utf-8"))
-    for relative in json_files
-}
 
-versioned = [
-    "gemini-extension.json",
-    "plugin.json",
-    ".codex-plugin/plugin.json",
-    ".claude-plugin/plugin.json",
-]
-for relative in versioned:
-    require(documents[relative].get("version") == VERSION, f"Wrong version in {relative}")
+def validate(root: Path = ROOT) -> None:
+    root = root.resolve()
+    for relative in REQUIRED:
+        require((root / relative).is_file(), f"Missing required file: {relative}")
 
-core = (ROOT / "betterwords.md").read_bytes()
-packaged = (ROOT / "skills/betterwords/references/betterwords.md").read_bytes()
-require(core == packaged, "Canonical rule copies differ")
+    core = (root / "betterwords.md").read_bytes()
+    require(core == (root / "skills/betterwords/references/betterwords.md").read_bytes(),
+            "Canonical rule copies differ")
+    rules = core.decode("utf-8")
+    require(re.search(rf"^Version {re.escape(VERSION)}\. Last updated \d{{4}}-\d{{2}}-\d{{2}}\.",
+                      rules, re.MULTILINE) is not None, "Canonical rule version is wrong")
+    expected = [(f"{section}.{item}", severity) for section, severities in RULE_SEVERITIES.items()
+                for item, severity in enumerate(severities, 1)]
+    actual = re.findall(r"^(\d+\.\d+)\. \[([^\]]+)\] (\S.*)$", rules, re.MULTILINE)
+    require([(rule_id, severity) for rule_id, severity, _ in actual] == expected,
+            "Rule inventory, order, or severity differs from the approved inventory")
+    require(len(re.findall(r"^\d+\.\d+\.", rules, re.MULTILINE)) == len(expected),
+            "Malformed or duplicate numbered rule")
+    require(rules.count("## Final self-check") == 1, "Missing or duplicate final self-check")
+    checks = re.findall(r"^(\d+)\. (.+)$", rules.split("## Final self-check", 1)[1], re.MULTILINE)
+    require([int(n) for n, _ in checks] == list(range(1, 10)), "Invalid self-check inventory")
+    require([text[:3] for _, text in checks[:8]] == ["[N]", "[H]", "[D]", "[A]"] + ["[C]"] * 4,
+            "Invalid self-check severity order")
 
-rules = core.decode("utf-8")
-require(f"Version {VERSION}." in rules, "Canonical rule version is wrong")
-for marker in ("**", "<u>", "</u>", "[removed:"):
-    require(marker not in rules, f"Review-only markup remains: {marker}")
-for phrase in ("machine tell", "AI tell", "human marker", "real authorship", "detection tools"):
-    require(phrase.casefold() not in rules.casefold(), f"Authorship rationale remains: {phrase}")
-for fixture in (
-    'Attribute every sourced quotation with enough detail for the intended reader to identify and verify its specific source',
-    '"not only X, but also Y,"',
-    'reversed ("It is X, not just Y") or split ("It may seem like X. But really it is Y.") variants',
-    '2.6. [H] Do not use "from X to Y" when the endpoints do not form a real scale.',
-    '2.7. [H] Do not use the ritual "Despite [positives], [subject] faces challenges...',
-    '3.1. [A] Avoid em dashes. Use commas, parentheses, colons, or semicolons. Use en dashes only for numeric ranges.',
-    'They cannot establish whether a person or model wrote the text',
-    'Match the characters to wherever the text will be published, and keep them consistent.',
-    '3.5. [A] Avoid stale, jargonized, incoherent, or crowded metaphors.',
-    '3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock."',
-    '3.9. [A] Avoid copula avoidance.',
-    'Treat the list as one family: each occurrence of any listed term adds to the cluster, even when no word repeats.',
-    'Established technical terms and precise domain uses are governed by 4.1 and do not count toward this cluster.',
-    '3.15. [D] Watch repeated uses of "here" that point to the writer\'s argument',
-    '3.11. [D] Watch for enumerations shaped for rhythm',
-    '3.12. [D] Watch for repeated comma-tail sentences',
-    '3.13. [D] Watch repeated sentence shells used as default emphasis',
-    '"what nobody tells you,"',
-    'false-suspense setups such as',
-    'promise an unearned revelation',
-    'dramatic colon reveals such as "The best part: it learns,"',
-    'Adverbs such as "quietly," "deeply," "fundamentally," and "remarkably"',
-    '4.6. [A] Turn nominalizations back into verbs.',
-    '4.7. [A] Avoid jargon, acronyms, foreign phrases, and technical terms',
-    'Do not let familiar phrases generate the thought.',
-    '5.4. [C] In summaries and recaps, keep tense consistent unless the timeline changes.',
-    'do not default to the median either.',
-    'An anecdote, example, or frame that could move unchanged to another subject is probably too generic',
-    'Each paragraph should advance the argument, not restate or redefine it.',
-    '5.9. [C] In change-driven documentation, write from the diff.',
-    '5.10. [C] Every sentence should add information, evidence, qualification, or necessary movement.',
-    'Check paragraphs and sections too: remove exact or near-duplicate passages and repeated points',
-    '5.11. [C] Test the argument as well as the prose.',
-    '5.12. [C] Do not let a coined label replace analysis.',
-    '6.1. [C] Match the artifact.',
-    '6.2. [C] When an author sample or baseline is supplied',
-    'match its structural habits as well as its register',
-    'generic copywriting scene-setters',
-    'Do not substitute a manufactured-recognition lead:',
-    'Do not promote a secondary detail, number, feature, quotation, or scene to the opening',
-    'Apply the move-down test:',
-    'Open with the central claim, evidence, event, decision',
-    'Let the material, evidence, and reader questions determine section order and length.',
-    '6.11. [C] Check the title for a generic formula.',
-    '6.12. [C] In procedures, give each independent action its own numbered step.',
-    '7.1. [C] Write as a competent native writer of the requested language and locale',
-    '7.2. [C] Preserve a supplied non-native, dialectal, regional, or mixed-language voice',
-    'Translate quotations faithfully and idiomatically, for sense rather than word-for-word form',
-    '7.5. [C] Use established target-language terminology and target-locale conventions.',
-    '8.1. [H] Do not treat rewriting as detector evasion.',
-    '9. End when done.',
-):
-    require(fixture in rules, f"Missing approved fixture: {fixture}")
+    for relative in ("gemini-extension.json", "plugin.json", ".codex-plugin/plugin.json",
+                     ".claude-plugin/plugin.json"):
+        document = json.loads((root / relative).read_text(encoding="utf-8"))
+        require(document.get("name") == "betterwords", f"Wrong name in {relative}")
+        require(document.get("version") == VERSION, f"Wrong version in {relative}")
+        if relative != "gemini-extension.json":
+            skills = local_path(root, document.get("skills"), relative)
+            require((skills / "betterwords/SKILL.md").is_file(), f"No Betterwords skill in {relative}")
+        if "contextFileName" in document:
+            local_path(root, document["contextFileName"], relative)
 
-final_check = rules.split("## Final self-check", 1)[1]
-checks = {
-    int(number): text
-    for number, text in re.findall(r"^(\d+)\. (.+)$", final_check, re.MULTILINE)
-}
-require(set(checks) == set(range(1, 10)), "Final self-check must contain items 1 through 9")
-for item in range(1, 9):
-    require(checks[item].startswith(("[N]", "[H]", "[D]", "[A]", "[C]")), f"Self-check {item} needs a severity label")
-require(checks[9] == "End when done.", "End when done must be the final unlabeled self-check")
-require("conclusions follow from the stated premises and evidence" in checks[5], "Final structure check lacks argument validity")
-hard_check = checks[2]
-default_check = checks[4]
-require("dangling modifier" in hard_check, "Dangling modifiers must be checked at [H]")
-require("generic headings" not in default_check, "Generic headings must not remain in the [A] pass")
-for word in ("honest", "magic", "mechanics", "unlock"):
-    require(word not in default_check.casefold(), f"Final [A] pass repeats 3.6 word: {word}")
+    for relative in (".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json"):
+        document = json.loads((root / relative).read_text(encoding="utf-8"))
+        require(len(document.get("plugins", [])) == 1, f"Expected one plugin in {relative}")
+        plugin = document["plugins"][0]
+        require(plugin.get("name") == "betterwords", f"Wrong plugin in {relative}")
+        source = plugin.get("source")
+        if isinstance(source, dict):
+            require(source.get("source") == "local", f"Expected local source in {relative}")
+            source = source.get("path")
+        require(local_path(root, source, relative) == root, f"Marketplace must load repo root: {relative}")
 
-inflated_rule = re.search(r"^2\.4\..*$", rules, re.MULTILINE).group(0)
-require('"stands as"' not in inflated_rule, "Bare copula avoidance belongs to 3.9, not 2.4")
-copula_rule = re.search(r"^3\.9\..*$", rules, re.MULTILINE).group(0)
-require('"stands as' in copula_rule, "Copula-avoidance examples must remain in 3.9")
-require('"functions as' in copula_rule, "functions as must remain in 3.9")
-require('"offers' in copula_rule, "offers must remain in 3.9")
-nonliteral_rule = re.search(r"^3\.6\..*$", rules, re.MULTILINE).group(0).casefold()
-for word in ("honest", "magic", "mechanics", "unlock"):
-    require(word in nonliteral_rule, f"Missing nonliteral-use word in 3.6: {word}")
+    skill = (root / "skills/betterwords/SKILL.md").read_text(encoding="utf-8")
+    require(skill.startswith("---\n") and "\n---\n" in skill[4:], "Invalid skill frontmatter")
+    frontmatter = skill.split("---", 2)[1]
+    require(re.search(r"^name: betterwords$", frontmatter, re.MULTILINE) is not None, "Invalid skill name")
+    require(re.search(r"^description: \S.+$", frontmatter, re.MULTILINE) is not None, "Missing skill description")
 
-vocabulary_rule = re.search(r"^3\.10\..*$", rules, re.MULTILINE).group(0).casefold()
-vocabulary_terms = (
-    "additionally", "align with", "boast", "captivate", "comprehensive", "crucial",
-    "cutting-edge", "delve", "dynamic", "elevate", "emphasize", "encompass", "enduring",
-    "enhance", "ensure", "exemplify", "foster", "garner", "groundbreaking", "highlight",
-    "in-depth", "innovative", "insightful", "interplay", "intricate", "key as adjective",
-    "landscape", "leverage", "meticulous", "multifaceted", "navigate figuratively", "nestled",
-    "notable", "nuanced", "pivotal", "plethora", "profound", "realm", "renowned", "robust",
-    "seamless", "shed light on", "showcase", "spearhead", "tapestry", "testament",
-    "transformative", "underscore", "unique", "valuable", "vibrant",
-)
-for term in vocabulary_terms:
-    require(term in vocabulary_rule, f"Missing AI-polish vocabulary term in 3.10: {term}")
+    cases = (root / ".github/evals/cases.md").read_text(encoding="utf-8")
+    chunks = re.split(r"^## Case (\d+):[^\n]*\n", cases, flags=re.MULTILINE)
+    require([int(n) for n in chunks[1::2]] == list(range(1, 43)), "Expected cases 1 through 42")
+    fields = ("User request", "Input artifact and sources", "Expected mode", "Required invariants",
+              "Prohibited changes", "Pass/fail rubric")
+    for number, body in zip(chunks[1::2], chunks[2::2]):
+        for field in fields:
+            require(len(re.findall(rf"^- {re.escape(field)}: \S", body, re.MULTILINE)) == 1,
+                    f"Case {number} needs exactly one nonempty {field} field")
 
-numbered: dict[int, list[int]] = {}
-for section, item, severity in re.findall(r"^(\d+)\.(\d+)\. \[([NHADC])\]", rules, re.MULTILINE):
-    numbered.setdefault(int(section), []).append(int(item))
-require(set(numbered) == set(range(1, 9)), "Rule sections must run from 1 through 8")
-for section, items in numbered.items():
-    require(items == list(range(1, max(items) + 1)), f"Incomplete numbering in section {section}")
-
-skill = (ROOT / "skills/betterwords/SKILL.md").read_text(encoding="utf-8")
-require(skill.startswith("---\nname: betterwords\n"), "Invalid SKILL.md frontmatter")
-frontmatter = skill.split("---", 2)[1]
-require("ordinary conversational replies" in frontmatter, "Skill trigger lacks its chat exclusion")
-require("ghostwriter" not in frontmatter.casefold(), "Skill trigger mentions a private system")
-for heading in ("## Draft or rewrite", "## Copyedit or line edit", "## Audit", "## Verification boundary"):
-    require(heading in skill, f"Missing skill contract section: {heading}")
-require("For a grouped rule, name the specific pattern after the rule number." in skill, "Audit contract lacks grouped-rule labels")
-require("Do not infer human or model authorship from them." in skill, "Audit contract lacks its authorship boundary")
-require("verify claims against the sources and test the argument before polishing the prose" in skill, "Verification boundary lacks verification-first sequencing")
-
-metadata = (ROOT / "skills/betterwords/agents/openai.yaml").read_text(encoding="utf-8")
-for field in ("display_name:", "short_description:", "default_prompt:", "allow_implicit_invocation: true"):
-    require(field in metadata, f"Missing openai.yaml field: {field}")
-require("icon_" not in metadata, "openai.yaml references an unvalidated icon")
-
-marketplace = documents[".agents/plugins/marketplace.json"]
-require(marketplace["plugins"][0]["source"]["path"] == "./", "Marketplace must load the repo root")
-require("screenshots" not in documents[".codex-plugin/plugin.json"]["interface"], "Empty screenshots field remains")
-
-evals = (ROOT / ".github/evals/cases.md").read_text(encoding="utf-8")
-case_numbers = [int(number) for number in re.findall(r"^## Case (\d+):", evals, re.MULTILINE)]
-require(case_numbers == list(range(1, 38)), "Behavioral cases must run from 1 through 37")
-for field in (
-    "User request:",
-    "Input artifact and sources:",
-    "Expected mode:",
-    "Required invariants:",
-    "Prohibited changes:",
-    "Pass/fail rubric:",
-):
-    require(evals.count(field) == 37, f"Every evaluation needs {field}")
-
-readme = (ROOT / "README.md").read_text(encoding="utf-8")
-changelog = (ROOT / ".github/CHANGELOG.md").read_text(encoding="utf-8")
-for relative, document in (("README.md", readme), (".github/CHANGELOG.md", changelog)):
-    require(
-        "[Tropes directory](https://tropes.fyi/directory)" in document,
-        f"Missing Tropes inspiration credit in {relative}",
-    )
-for source in ("AP Stylebook", "Chicago Manual of Style"):
-    require(source.casefold() not in rules.casefold(), f"Core rules mention optional authority: {source}")
-    require(source.casefold() not in readme.casefold(), f"README mentions optional authority: {source}")
-
-link_pattern = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
-for markdown in ROOT.rglob("*.md"):
-    text = markdown.read_text(encoding="utf-8")
-    for target in link_pattern.findall(text):
-        path = target.split("#", 1)[0].strip()
-        if not path or re.match(r"^[a-z]+://", path, re.IGNORECASE) or path.startswith("mailto:"):
+    for markdown in root.rglob("*.md"):
+        if ".git" in markdown.relative_to(root).parts:
             continue
-        require((markdown.parent / path).resolve().exists(), f"Broken local link in {markdown.relative_to(ROOT)}: {target}")
+        for target in re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", markdown.read_text(encoding="utf-8")):
+            target = target.strip().strip("<>")
+            parsed = urlsplit(target)
+            if not target or parsed.scheme or parsed.netloc or not parsed.path:
+                continue
+            resolved = (markdown.parent / unquote(parsed.path)).resolve()
+            require(resolved.is_relative_to(root) and resolved.exists(),
+                    f"Broken local link in {markdown.relative_to(root)}: {target}")
 
-require(not (ROOT / "assets").exists(), "Move root assets under .github")
-require(not (ROOT / "platforms").exists(), "Move root platform notes under .github")
 
-print("betterwords package validation passed")
+if __name__ == "__main__":
+    try:
+        validate()
+    except (ValueError, OSError, KeyError, TypeError) as error:
+        raise SystemExit(str(error)) from error
+    print("betterwords package validation passed (editorial behavior not evaluated)")

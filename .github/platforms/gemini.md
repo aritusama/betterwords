@@ -61,6 +61,8 @@ Use this for the web-based Gemini app where native skills or extensions are unav
 
 Attach or paste `betterwords.md`, then paste the contents of `.github/platforms/common-instructions.md`, then provide the draft or writing task.
 
+The complete rule file must be read before writing or editing. If file access returns only excerpts, provide the entire file in the active conversation, using labeled consecutive parts if needed. Resolve missing portions before starting the artifact; selected rules or a summary cannot replace the complete file.
+
 ## Official docs checked
 
 - Gemini CLI extensions: `gemini extensions --help`

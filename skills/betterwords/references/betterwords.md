@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.1.5. Last updated 2026-08-23. Stable filename: `betterwords.md`.
+Version 2.1.6. Last updated 2026-09-05. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -8,7 +8,17 @@ The goal is clear, specific, source-respecting text without weak LLM defaults. D
 
 ## Operating notes
 
-Apply only the parts that fit fiction, poetry, legal drafting, transcripts, raw interviews, or short code comments.
+Treat this file as editorial requirements for the text you deliver. Apply them through decisions about meaning, evidence, structure, wording, and the reader's needs while drafting or editing. A writing request requires the requested text. Do not substitute test code, a lint report, a compliance score, or a checklist for that deliverable.
+
+Before drafting, editing, translating, or auditing, read this file completely: the operating notes, all 72 numbered rules, and the final self-check. If a tool returns truncated output or selected excerpts, retrieve every missing part in consecutive chunks before starting the work. Head-and-tail reads, search matches, summaries, remembered rules, and the final self-check alone do not satisfy this requirement. If the complete file is inaccessible, state that limitation and obtain the missing text before proceeding under betterwords.
+
+Consider every rule before deciding how it applies to the current task. Apply the rules thoroughly at their stated severity, using the precedence below and the artifact's intent, audience, and format. For fiction, poetry, legal drafting, transcripts, raw interviews, or short code comments, apply only the parts that fit, after considering the full guidance. Preserve strong passages and justified exceptions; do not manufacture an edit for every rule.
+
+Use the full guidance while composing, then review the complete deliverable against it. Inspect meaning, relationships between claims, structure, and patterns across the whole text as well as individual sentences. A final pass can catch omissions, but it does not replace applying the guidance during writing.
+
+Keep the complete current file available in the working context. Reload it if context loss, compaction, or a version change leaves the full current guidance unavailable. A prior summary or statement that the rules were read is insufficient.
+
+Tools may check read coverage and narrow mechanical requirements. Those checks cannot establish that the rules were understood or that the writing satisfies them. Do not claim that all rules were internalized or passed on the strength of counts, keyword scans, or a self-attestation. Judge editorial application from the actual text in context.
 
 When instructions conflict, follow this order: safety, law, platform rules, and required disclosure; truth and source status; the current task; explicit overrides; required format; audience and style briefs; these rules; taste.
 
@@ -20,7 +30,7 @@ Severity descends in this order:
 - [H] Hard ban: use only when quoted, source-required, format-required, or explicitly required.
 - [D] Density warning: one instance may work; clusters fail.
 - [A] Default avoid: use only when it serves the task or format.
-- [C] Audit trigger: inspect during the final pass; context decides.
+- [C] Audit trigger: consider while writing and inspect during the final pass; context decides.
 
 ## 1. Truth and sources
 
@@ -178,13 +188,13 @@ Severity descends in this order:
 
 8.2. [C] Interpret "humanize" as a quality rewrite. Preserve meaning, facts, attribution, uncertainty, scope, required format, and length unless instructed otherwise.
 
-8.3. [C] Do not lightly edit around memorable phrases, stock transitions, paragraph shape, or syntactic formulas. Read for meaning, then rewrite in the target register.
+8.3. [C] Match the depth of change to the requested edit. When editing the author's own draft, preserve distinctive phrasing and structure that serve its meaning, voice, and format. Replace stock language and repair defects you can name; memorable wording alone is no reason to rewrite. When independently paraphrasing source material, read for meaning, then write in the target register. Preserve exact names, technical terms, and wording required for accuracy; recast distinctive source phrasing and sentence structure, or retain it as an appropriately attributed quotation under 1.6 and 7.4.
 
 8.4. [C] Do not add unsupported claims, examples, sources, sections, hedges, or framing while rewriting.
 
 ## Final self-check
 
-Run checks in severity order:
+Review the complete deliverable against the full guidance in severity order, honoring the operating notes and contextual exceptions. The list below is a condensed reminder; it does not replace reading or applying every rule. Correct the editorial defects you find in the text rather than treating this pass as a mechanical certification.
 
 1. [N] Every fact, source, citation, quotation, number, example, and claim scope is supported; quoted sources are identifiable and verifiable at the artifact's required depth; uncertainty and proposed-copy status remain visible.
 2. [H] No staged negation, assistant residue, filler, inflated significance, promotional tone, false range, fake balance, synonym cycling, banned opener or heading, dangling modifier, concealed harm, or forced ending remains.

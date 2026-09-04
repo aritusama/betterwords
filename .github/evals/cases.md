@@ -2,6 +2,10 @@
 
 Run these cases manually against Codex, Claude, and Gemini before release. Record the host, model, date, and pass or fail result. Model calls stay out of pull-request CI.
 
+These are maintainer review scenarios. Give the model the user request, the supplied artifact and sources, and access to the current betterwords instructions. Keep expected behavior and review criteria with the reviewer. Assess the actual deliverable in context; writing scripts or reproducing this rubric does not fulfill the editorial task. Package validation checks the scenario file's structure and cannot establish that a model passes these cases.
+
+For reading behavior, record the portions actually returned to the model when the host exposes that evidence. Record coverage as unobserved when it cannot be inspected. Complete read coverage establishes access to the guidance; it cannot prove understanding or replace review of the writing.
+
 ## Case 1: preserve source uncertainty
 
 - User request: "Rewrite this finding for a report."
@@ -50,7 +54,7 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 ## Case 6: keep a copyedit narrow
 
 - User request: "Copyedit for grammar and punctuation only."
-- Input artifact and sources: A complete two-paragraph release note with an intentional informal voice.
+- Input artifact and sources: Draft, paragraph 1: `Saved filters is here. Pick one from the list, and get back to work.` Paragraph 2: `We fixed the export timeout too, it now retries once.` Source: `The release adds saved filters selectable from a list and changes export timeout handling to retry once.`
 - Expected mode: Copyedit.
 - Required invariants: Correct grammar and punctuation while preserving meaning, order, voice, and paragraph structure.
 - Prohibited changes: Do not add headings, rewrite paragraphs, or replace the voice with a generic professional register.
@@ -334,3 +338,48 @@ Run these cases manually against Codex, Claude, and Gemini before release. Recor
 - Required invariants: Flag Option A under rule 6.3 because it promotes a supported but secondary measurement chiefly for punch and delayed identification; apply the move-down test and preserve Options B and C because their opening details carry the central supported change.
 - Prohibited changes: Do not ban numbers, product details, or detail-led openings as classes; weaken the supported module and fan claims; infer authorship; or return silently rewritten options.
 - Pass/fail rubric: Pass if the audit distinguishes a secondary-detail kicker from claim-bearing specificity and permits an earned concrete opening.
+
+## Case 38: apply editorial judgment to the requested deliverable
+
+- User request: "Line-edit this report excerpt with betterwords. Keep the required heading Overview and the methods terminology. Return the edited excerpt."
+- Input artifact and sources: Draft: `## Overview` followed by `The pilot eliminates delays. The analysis uses a dynamic panel model with robust standard errors. Early results suggest the pilot may reduce median processing time in the observed sample. This is a pivotal leap forward. The pilot may reduce median processing time in the observed sample.` Source: `The analysis uses a dynamic panel model with robust standard errors. Early results suggest the pilot may reduce median processing time in the observed sample. The analysis does not establish whether the pilot changes the frequency of delays.`
+- Expected mode: Line edit.
+- Required invariants: Return the edited excerpt; preserve the required heading and precise methods terms; retain the limited, uncertain finding about median processing time; remove the unsupported elimination claim, unearned evaluation, and redundant restatement.
+- Prohibited changes: Do not supply test code, lint output, a compliance score, or a checklist in place of the excerpt. Do not remove `Overview`, `dynamic panel model`, or `robust standard errors` through context-free phrase bans, invent results, strengthen the source, or claim verified compliance from mechanical checks.
+- Pass/fail rubric: Pass if the actual excerpt fulfills the editing request and preserves the source's meaning and uncertainty with natural, economical prose. Judge permitted terminology, required format, and repetition by their function in this artifact. No single expected wording or keyword score establishes a pass.
+
+## Case 39: recover omitted guidance before editing
+
+- User request: "Use betterwords to line-edit this project update for the team."
+- Input artifact and sources: Start a fresh task with the native skill or common instruction adapter. Initially supply only the opening and operating notes before section 1, plus the final self-check, explicitly marking the intervening numbered rules as omitted. Keep the complete current `betterwords.md` available through the host's file-reading tools. Draft: `The export update includes saved filters. The team shipped it on Tuesday. To put it simply, users can reuse a saved filter. The update includes saved filters.` Source: `The export update shipped on Tuesday and lets users save and reuse filters.`
+- Expected mode: Line edit, after recovering the complete current guidance.
+- Required invariants: Retrieve every omitted or truncated portion before editing, consider the full guidance, and return a source-faithful update that removes filler and needless repetition. If the complete file becomes inaccessible, state the limitation and obtain the missing text before proceeding under betterwords.
+- Prohibited changes: Do not proceed using only the opening, final self-check, search hits, selected rules, or a remembered summary. Do not treat an assertion that all rules were read, a rule count, or a mechanical check as proof of understanding or editorial compliance. Do not add dates, benefits, or results absent from the source.
+- Pass/fail rubric: Pass the reading requirement only when the available tool record shows the complete guidance was returned before editing, including recovery of any further truncation. If the host does not expose the relevant record, mark reading coverage unobserved. Separately review the resulting prose for faithful, proportionate editing; observed reading alone cannot establish editorial quality.
+
+## Case 40: preserve the author's effective phrasing
+
+- User request: "Copyedit my memoir excerpt for grammar and punctuation. Keep my voice."
+- Input artifact and sources: Author's draft: `I kept the bent key. It opened nothing, but throwing it away felt like moving out twice.` The author supplies the first-person account; no external factual additions are requested.
+- Expected mode: Copyedit.
+- Required invariants: Preserve the supplied perspective, metaphor, and rhythm when no grammatical defect requires repair.
+- Prohibited changes: Do not replace effective phrasing solely because it is memorable or because a copyedit should appear to make changes. Do not add experiences or explanations.
+- Pass/fail rubric: An unchanged excerpt is an appropriate result. A reviewer must be able to name a defect and explain how any change repairs it without flattening the voice.
+
+## Case 41: independently paraphrase a source
+
+- User request: "Write one factual sentence from these notes for a repair log. Do not quote the source."
+- Input artifact and sources: Source note: `Every cold start was another roll of the dice: the laptop booted on three of five attempts.` No cause or later test results are supplied.
+- Expected mode: Source-based drafting.
+- Required invariants: State the observed result and five-attempt scope in independently phrased factual language suitable for a repair log.
+- Prohibited changes: Do not carry over the source's distinctive metaphor, invent a cause, extrapolate long-term reliability, or change the observed counts.
+- Pass/fail rubric: Review meaning, scope, and independence from the source's phrasing. Several natural formulations may work; lexical difference alone does not establish a good paraphrase.
+
+## Case 42: a second copyedit preserves clean prose
+
+- User request: "Copyedit this Ukrainian update without changing its tone or facts." Then submit the returned artifact in a fresh task with the same request, sources, and complete current rules.
+- Input artifact and sources: Draft and source: `У вівторок ми додали збережені фільтри до експорту. Тепер потрібний набір можна вибрати зі списку.` For the second task, use the first task's actual returned artifact, with the original source unchanged.
+- Expected mode: Two successive copyedits.
+- Required invariants: Preserve natural Ukrainian, the two supported statements, and the supplied tone. Allow an unchanged result in either pass.
+- Prohibited changes: Do not add benefits, switch language, normalize the update into generic formal prose, or manufacture further changes to demonstrate activity.
+- Pass/fail rubric: Retain both outputs for a reviewer to compare. Each edit must repair a named defect at the requested level. Unnecessary second-pass changes fail; byte equality alone cannot establish the first output's quality.

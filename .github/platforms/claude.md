@@ -59,6 +59,8 @@ Use this only where custom skills are unavailable.
 
 For one-off chats, attach or paste `betterwords.md`, then paste the contents of `.github/platforms/common-instructions.md`, then provide the draft or writing task.
 
+The complete rule file must be read before writing or editing. If file access returns only excerpts, provide the entire file in the active conversation, using labeled consecutive parts if needed. Resolve missing portions before starting the artifact; selected rules or a summary cannot replace the complete file.
+
 ## Official docs checked
 
 - Claude Code skills: https://code.claude.com/docs/en/skills

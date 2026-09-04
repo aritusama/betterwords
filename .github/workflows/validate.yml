@@ -19,3 +19,5 @@ jobs:
           git diff --exit-code -- skills/betterwords/references/betterwords.md
       - name: Validate package
         run: python .github/scripts/validate.py
+      - name: Exercise package integrity failures
+        run: python -B -m unittest discover -s .github/scripts/tests -v

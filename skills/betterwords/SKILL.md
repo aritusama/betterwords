@@ -5,9 +5,15 @@ description: Apply source-respecting writing and editing rules to durable text a
 
 # betterwords
 
-Load [betterwords](./references/betterwords.md) before working on the artifact. Apply its rules inside production text, not to ordinary conversation around the task.
+Before working on the artifact, read [betterwords](./references/betterwords.md) completely, including its operating notes, all numbered rules, and final self-check. Recover any truncated or omitted portions in consecutive chunks before drafting, editing, translating, or auditing. Selected sections, head-and-tail excerpts, summaries, and remembered rules are insufficient. Reload the complete current file if it is no longer available after context loss, compaction, or a version change.
+
+Consider every rule, then apply it according to its severity, precedence, and the artifact's intent and format. Use the guidance while composing and review the complete deliverable against it afterward. Preserve justified exceptions and strong passages. Apply the rules inside production text; ordinary conversation around the task keeps its own register.
+
+Deliver the requested writing or editorial findings. Do not replace editorial work with test code, lint output, a compliance score, or a checklist. Mechanical checks and read-coverage records cannot establish understanding or editorial compliance; the actual text requires contextual judgment.
 
 ## Draft or rewrite
+
+The optional [editorial examples](./references/editorial-examples.md) illustrate contextual decisions and preservation of strong prose. They add no rules and do not replace the complete rule file.
 
 - Return the production text first.
 - Preserve supplied facts, attribution, uncertainty, scope, and required format.

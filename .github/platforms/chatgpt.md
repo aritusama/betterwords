@@ -13,7 +13,7 @@ Use this for ChatGPT outside Codex.
    - `Rewrite this intro without adding new facts.`
 5. Test the GPT in preview with a real draft before sharing it.
 
-If the GPT does not consistently apply the rules, paste the most relevant `betterwords.md` sections into the GPT instructions. Uploaded knowledge is useful context, but behavior rules are strongest when they are in instructions.
+Every setup on this page requires the complete `betterwords.md` text to be read before writing or editing. If file access returns only excerpts, provide the entire file in the active conversation, using labeled consecutive parts if needed. Resolve missing portions before starting the artifact; selected rules or a summary cannot replace the complete file.
 
 ## Private recurring setup: ChatGPT Project
 

@@ -2,6 +2,22 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.6] - 2026-09-05
+
+### Added
+
+- Added manual editorial scenarios for delivering contextually edited text and recovering omitted rules before editing.
+- Added annotated examples for preserving the author's phrasing, independently paraphrasing sources, keeping format exceptions, and leaving clean prose unchanged on a repeated copyedit.
+
+### Changed
+
+- Made complete reading of the current rule file a prerequisite for drafting, editing, translating, and auditing, with recovery instructions for truncated reads and lost context.
+- Made contextual application during composition and review of the complete deliverable explicit. The final self-check serves as a reminder, and mechanical checks cannot establish understanding or editorial compliance.
+- Replaced selective-reading instructions in installation adapters and carried the editorial contract through the native skill, common instructions, and Copilot adapter.
+- Clarified rule 8.3 to distinguish editing the author's draft from independently paraphrasing source material. Preserved all 72 rule IDs and severity levels.
+- Brought fallback audit, editing-scope, and verification instructions into agreement with the native skill.
+- Replaced prose-fragment assertions with rule-inventory, severity, package-path, and consistency checks, with mutation tests for packaging defects.
+
 ## [2.1.5] - 2026-08-23
 
 ### Added
