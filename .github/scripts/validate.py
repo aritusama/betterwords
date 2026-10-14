@@ -8,7 +8,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "2.1.6"
+VERSION = "2.1.7"
 # One severity per existing rule, in section/item order. No wording assertions.
 RULE_SEVERITIES = {
     1: "NNNNNNC", 2: "HHHHHHHHH", 3: "AAAAAAAAADDDDDD", 4: "AAAAAAAH",
@@ -97,7 +97,7 @@ def validate(root: Path = ROOT) -> None:
 
     cases = (root / ".github/evals/cases.md").read_text(encoding="utf-8")
     chunks = re.split(r"^## Case (\d+):[^\n]*\n", cases, flags=re.MULTILINE)
-    require([int(n) for n in chunks[1::2]] == list(range(1, 43)), "Expected cases 1 through 42")
+    require([int(n) for n in chunks[1::2]] == list(range(1, 49)), "Expected cases 1 through 48")
     fields = ("User request", "Input artifact and sources", "Expected mode", "Required invariants",
               "Prohibited changes", "Pass/fail rubric")
     for number, body in zip(chunks[1::2], chunks[2::2]):

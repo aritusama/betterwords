@@ -1,6 +1,6 @@
 # betterwords
 
-Version 2.1.6. Last updated 2026-09-05. Stable filename: `betterwords.md`.
+Version 2.1.7. Last updated 2026-10-15. Stable filename: `betterwords.md`.
 
 These rules govern durable or external text: articles, reports, reviews, explainers, specs, internal docs, release notes, newsletters, scripts, slides, and similar production writing. They do not govern ordinary chat unless explicitly loaded for it.
 
@@ -36,7 +36,7 @@ Severity descends in this order:
 
 1.1. [N] Never invent facts, numbers, dates, names, citations, sources, credentials, real-world examples, firsthand experience, or quotations presented as already spoken. A citation must exist and support its claim. Clearly labeled hypotheticals are allowed when they cannot be mistaken for evidence or real experience.
 
-1.2. [N] A source cannot support a stronger or broader claim than it makes. Preserve uncertainty, caveats, estimates, and scope. Do not turn limited evidence into universal claims.
+1.2. [N] A source cannot support a stronger or broader claim than it makes. Preserve uncertainty, caveats, estimates, and scope. Do not turn limited evidence into universal claims. Claims that a benefit comes without a loss require support for both the improvement and the preserved result under the stated conditions. Missing evidence of a loss does not establish its absence. Do not invent a downside to create balance.
 
 1.3. [N] For contested or estimated numbers, name the source or method and avoid false precision. Do not turn one or two sources into "many," "widely reported," or equivalent consensus language.
 
@@ -50,7 +50,7 @@ Severity descends in this order:
 
 ## 2. Hard bans
 
-2.1. [H] Do not use staged negation formulas: "not just X, but Y," "not only X, but also Y," reversed ("It is X, not just Y") or split ("It may seem like X. But really it is Y.") variants, "no X, no Y, just Z," or stacked "No X. No Y. No Z." slogans.
+2.1. [H] Do not use staged negation formulas: "not just X, but Y," "not only X, but also Y," reversed ("It is X, not just Y") or split ("It may seem like X. But really it is Y.") variants, "no X, no Y, just Z," or stacked "No X. No Y. No Z." slogans. Apply this rule to equivalents such as "more than X" and "less X, more Y" when they stage a revelation without adding a supported distinction. Preserve factual corrections, measured comparisons, evidence limits, and contrasts needed to explain scope or answer the reader's question.
 
 2.2. [H] Remove generic assistant greetings or praise that the artifact does not call for, plus self-identification, knowledge-cutoff disclaimers, "I hope this helps," "Would you like me to," "Let me know if," opener-position "Here is a," and post-delivery offers.
 
@@ -80,7 +80,7 @@ Severity descends in this order:
 
 3.5. [A] Avoid stale, jargonized, incoherent, or crowded metaphors. Keep a figure only when it clarifies a real relation; replace the rest with the concrete action or condition.
 
-3.6. [A] Avoid nonliteral use of "honest," "magic," "mechanics," and "unlock." Use the direct claim or explanation instead.
+3.6. [A] Avoid nonliteral shortcuts that blur the intended meaning or substitute one property for another. Inspect words such as "honest," "magic," "mechanics," "unlock," "cheap," and "expensive" for the claim they actually make. If the supported point is simplicity, say "simple"; use cost language when money, time, computation, or another specific resource is at issue. Name the intended quality, action, or relation instead of borrowing a stronger or different judgment. Preserve literal uses, precise established terms, and figures that clarify a real relation under 3.5. If context does not establish the intended meaning, flag the ambiguity rather than guessing. Keep comparisons within the supported scope.
 
 3.7. [A] Avoid stance-first pseudo-candor, faux insight, and false-suspense setups such as "let's be clear," "the reality is," "the truth is," "frankly," "what nobody tells you," "the part everyone misses," "what most people get wrong," "here's the thing," "here's the kicker," and "here's where it gets interesting" when they delay the claim, perform conviction, promise an unearned revelation, or assert audience ignorance without support. State the claim and support it.
 
@@ -108,7 +108,7 @@ Severity descends in this order:
 
 4.3. [A] Cut needless words and needless negation: "because" instead of "due to the fact that," "to" instead of "in order to," and "common" instead of "not uncommon," unless the hedge matters.
 
-4.4. [A] Prefer specific nouns, verbs, measurements, and observed behavior over adjective or adverb padding. Adverbs such as "quietly," "deeply," "fundamentally," and "remarkably" often compress a claim about visibility, degree, scope, or significance. State that claim when it matters; keep the adverb when it names a concrete, supported condition. Replace vague judgments such as "amazing," "impressive," "powerful," and "intuitive" with what earns the judgment.
+4.4. [A] Prefer specific nouns, verbs, measurements, and observed behavior over adjective or adverb padding. Adverbs such as "quietly," "deeply," "fundamentally," and "remarkably" often compress a claim about visibility, degree, scope, or significance. State that claim when it matters; keep the adverb when it names a concrete, supported condition. Replace vague judgments such as "amazing," "impressive," "powerful," and "intuitive" with what earns the judgment. Apply the same test to claims that something helps, simplifies, or improves a task: explain the supported change. When the evidence establishes only a feature, describe that feature without inventing a benefit.
 
 4.5. [A] Cut or quantify "basically," "kind of," "somewhat," and similar softeners when they carry no real degree or source uncertainty. Preserve meaningful hedges.
 
@@ -199,7 +199,7 @@ Review the complete deliverable against the full guidance in severity order, hon
 1. [N] Every fact, source, citation, quotation, number, example, and claim scope is supported; quoted sources are identifiable and verifiable at the artifact's required depth; uncertainty and proposed-copy status remain visible.
 2. [H] No staged negation, assistant residue, filler, inflated significance, promotional tone, false range, fake balance, synonym cycling, banned opener or heading, dangling modifier, concealed harm, or forced ending remains.
 3. [D] The aggregate density of AI-polish vocabulary, sentence shells, triads, staccato, comma lists and tails, transitions, rhetorical pivots, speech tags, and "here" framing does not create a pattern.
-4. [A] Punctuation, formatting, metaphors, nonliteral shortcuts, pseudo-candor, false suspense, compressed adverb claims, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task.
+4. [A] Punctuation, formatting, metaphors, pseudo-candor, false suspense, compressed adverb claims, aphorism formulas, evaluations, softeners, verbs, jargon, and markup serve the destination and task; wording names the intended quality, action, or relation and keeps comparisons within the supported scope.
 5. [C] Paragraphs have one job; conclusions follow from the stated premises and evidence; structure gives material proportional space and preserves useful complexity; examples are specific and supported; repeated substance is removed unless it has a defined function; coined labels do not replace analysis; headings and conclusions do not restate the point.
 6. [C] The artifact matches its format, target language and locale, audience, and supplied voice without inventing or erasing perspective. Procedures separate independent actions, preserve simultaneous actions, put conditions before commands, and keep notes informational. Translations remain faithful and idiomatic; terminology and conventions stay consistent.
 7. [C] Rewrites preserve meaning and evidence while replacing the original phrasing and structure where needed.

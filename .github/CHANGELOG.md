@@ -2,6 +2,23 @@
 
 All notable changes to betterwords are documented here. This project follows [Semantic Versioning](https://semver.org) and the [Keep a Changelog](https://keepachangelog.com) format.
 
+## [2.1.7] - 2026-10-15
+
+### Added
+
+- Added a Ukrainian editorial example distinguishing simplicity from cost while preserving useful figurative wording.
+- Added manual editorial scenarios for words that substitute a different property, valid literal and technical uses, and ambiguous meanings that require clarification rather than a guessed replacement.
+- Added paired revision and preservation scenarios for staged contrasts, benefit claims, and claims that an improvement comes without a loss. The cases include supported comparisons, meaningful uncertainty, and Ukrainian passages.
+- Documented Graphite's AI Tells studies as sources of candidate patterns for editorial review, without treating their frequency findings as evidence of writing quality or authorship.
+
+### Changed
+
+- Broadened rule 3.6 from named nonliteral words to shortcuts that blur meaning or substitute one property for another. Cost wording must concern an actual resource; corrections must preserve supported comparison scope, precise terms, and useful figures.
+- Clarified rule 1.2 to require support for both an improvement and a claimed preserved result, without inferring preservation from missing evidence or inventing a downside.
+- Extended rule 2.1 to equivalent staged contrasts while explicitly preserving factual corrections, measured comparisons, evidence limits, and necessary distinctions.
+- Extended rule 4.4 to benefit claims: explain the supported change and describe a feature without inventing a benefit when the evidence establishes only the feature.
+- Updated the final self-check to inspect the quality, action, or relation a word claims. Preserved all 72 rule IDs and severity levels.
+
 ## [2.1.6] - 2026-09-05
 
 ### Added

@@ -383,3 +383,57 @@ For reading behavior, record the portions actually returned to the model when th
 - Required invariants: Preserve natural Ukrainian, the two supported statements, and the supplied tone. Allow an unchanged result in either pass.
 - Prohibited changes: Do not add benefits, switch language, normalize the update into generic formal prose, or manufacture further changes to demonstrate activity.
 - Pass/fail rubric: Retain both outputs for a reviewer to compare. Each edit must repair a named defect at the requested level. Unnecessary second-pass changes fail; byte equality alone cannot establish the first output's quality.
+
+## Case 43: correct words that substitute a different property
+
+- User request: "Line-edit these passages in their original languages. Use the supplied meaning and keep the comparison scope."
+- Input artifact and sources: A appears in a section comparing three reviewed controls. Its source identifies limiting the agent's access as the simplest of those controls, and the author confirms that simplicity is intended; no resource costs were compared. Draft A: `Агент бачить лише те, до чого йому надали доступ, і це найдешевший спосіб керувати ризиком.` For B, the author means startup duration: the source records 30 seconds for this setup and 10 seconds for the previous one, with the same configuration steps. Draft B: `The new setup is heavier than the previous one.` For C, the author means the recorded count, with no point about candor. The source records 12 failed runs. Draft C: `The honest number is 12 failed runs.`
+- Expected mode: Line edit.
+- Required invariants: In A, express simplicity naturally in Ukrainian and retain the comparison's restriction to the reviewed controls. In B, express the longer startup time while preserving the baseline and supplied measurements if used. In C, state the failure count directly. Apply rule 3.6 by meaning, including to `heavier`, which is absent from its examples.
+- Prohibited changes: Do not infer monetary savings, greater configuration complexity, physical weight, dishonesty, or a universal ranking. Do not mechanically replace every figurative word, turn the edit into an audit, or invent support for the original wording.
+- Pass/fail rubric: Review whether each returned passage names the supplied property without introducing another claim. A should use `найпростіший` or an equally faithful natural expression; B may state the measured startup times or the supported comparison; C needs no evaluative adjective. Several formulations can pass, and matching a preferred word alone is insufficient.
+
+## Case 44: preserve valid cost language, terminology, and figures
+
+- User request: "Copyedit these sentences only where a defect requires it. Keep their languages and precise terms."
+- Input artifact and sources: Each sentence has a matching source. A: `Of the three plans, Plan A is the cheapest at $4 per month.` The other two plans cost $6 and $9 per month on the same terms. B: `The lookup is computationally cheap: it requires one indexed read.` The implementation note confirms the single indexed read and uses `cheap` for that limited computational work. C: `Агент бачить лише файли, до яких йому надали доступ.` The access specification confirms that limitation. D: `The course covers classical mechanics.` The syllabus uses that established subject name. E: `Her honest answer acknowledged the missing data.` The supplied interview confirms that she candidly and truthfully acknowledged the omission.
+- Expected mode: Copyedit.
+- Required invariants: Preserve the scoped monetary comparison, supported computational meaning, natural Ukrainian description of access, established subject name, and literal truthfulness claim. Unchanged sentences are valid results.
+- Prohibited changes: Do not replace `cheapest` or `cheap` with `simplest`, treat every nonliteral use as defective, remove precise terminology, change costs or scope, or infer a new defect merely to show editing activity.
+- Pass/fail rubric: Pass if every retained or edited sentence preserves its supported meaning and each change repairs a named defect. Rules 3.5, 3.6, 4.1, and 7.3 must be applied in context rather than as a word blacklist.
+
+## Case 45: flag an unclear meaning without changing supported comparisons or quotes
+
+- User request: "Audit these statements for word choice without rewriting them. Identify any missing context."
+- Input artifact and sources: A: `This is the cheapest fix.` Its only source says that a patch repairs failed exports; it gives no cost, complexity, alternatives, or intended sense of `cheapest`. B: `A is cheaper than B.` The source compares only these two plans on identical terms: A costs $4 per month and B costs $6. C: `In the supplied project interview, maintainer Iryna said, "This is our cheapest option."` The transcript contains those exact words but does not explain the cost basis or identify the alternatives.
+- Expected mode: Audit.
+- Required invariants: Flag A's unresolved criterion and comparison scope under rule 3.6, with the unsupported ranking addressed under 1.2 or 2.5. State what context is needed; do not guess that simplicity is intended. Accept B's supported cost comparison. Preserve C's attributed quotation exactly under 1.6 while distinguishing the speaker's claim from an independently established ranking.
+- Prohibited changes: Do not silently replace `cheapest` with `simplest`, invent measurements or intent, widen B into a cheapest-of-all claim, edit the sourced quote, or treat attribution as proof of the quoted ranking.
+- Pass/fail rubric: Pass if the audit separates an ambiguous unsupported statement, a supported comparison, and an exact attributed quotation. Any proposed correction must remain within the supplied evidence, and unresolved meaning must remain visible.
+
+## Case 46: remove staged contrasts while preserving factual distinctions
+
+- User request: "Line-edit these passages in their original languages without changing supported distinctions."
+- Input artifact and sources: The dashboard specification says it displays fault codes and cannot change engine calibration. Draft A: `The dashboard is more than a display; it is your command center.` Draft B: `The dashboard displays fault codes but cannot change the engine calibration.` A benchmark records peak memory falling from 200 MB to 120 MB and CPU time rising from 40 ms to 60 ms. Draft C: `Less memory, more CPU time: in the supplied benchmark, peak memory fell from 200 MB to 120 MB, while CPU time rose from 40 ms to 60 ms.` A retrospective study reports an association and explicitly does not establish causation. Draft D: `Дослідження виявило зв'язок, але не встановило причинності.`
+- Expected mode: Line edit.
+- Required invariants: Replace A's staged redefinition with the supported capability under rule 2.1. Preserve B's functional boundary, C's measured tradeoff and benchmark scope, and D's evidence limit. Unchanged B, C, and D are valid results.
+- Prohibited changes: Do not remove a contrast solely because it uses negation or a `less X, more Y` form, invent dashboard controls, alter measurements, erase the causal limitation, or replace one staged revelation with another.
+- Pass/fail rubric: Pass if A states a supported capability and the factual distinctions survive. Judge each construction by what it contributes; a reduction in contrast words alone does not establish success.
+
+## Case 47: ground benefit claims and preserve supported effects and uncertainty
+
+- User request: "Line-edit these product findings without adding claims."
+- Input artifact and sources: A's source says users can save a filter and select it again for the next export; it contains no findings about reporting effort or accuracy. Draft A: `Saved filters make reporting easier and improve accuracy.` B's source reports that participants in a gloved-use trial found the larger handle easier to turn. Draft B: `In the supplied trial, participants found the larger handle easier to turn with gloves.` C's source and draft are identical: `Early results suggest the cache may reduce processing time.`
+- Expected mode: Line edit.
+- Required invariants: Replace A's unsupported benefit claims with the documented ability to save and reuse a filter under rules 1.2 and 4.4. Preserve B's reported benefit and trial scope, and C's early status and uncertainty. Unchanged B and C are valid results.
+- Prohibited changes: Do not invent time savings, error rates, mechanisms, or experience; ban words such as `easier` or `may`; turn reported experience into a universal result; or strengthen the preliminary finding.
+- Pass/fail rubric: Pass if A describes the established feature, B retains the supported benefit, and C remains tentative. The presence or absence of benefit vocabulary does not determine the result.
+
+## Case 48: require support for both sides of a benefit-without-loss claim
+
+- User request: "Line-edit these findings in their original languages. Preserve supported results and flag any unsupported claims that need more evidence."
+- Input artifact and sources: A's source establishes a 20% cost reduction in a benchmark but contains no accuracy comparison. Draft A: `The smaller model reduces cost without compromising accuracy.` B's source compares both models on the same 500-item classification set: the smaller model cost 20% less and both scored 92% accuracy. Draft B: `On the 500-item classification set, the smaller model cost 20% less without reducing measured accuracy; both models scored 92%.` C's source records export time falling from 12 to 7 minutes in a benchmark and says memory use was not measured. Draft C: `Патч пришвидшує експорт без збільшення споживання пам'яті.`
+- Expected mode: Line edit.
+- Required invariants: Keep A's supported cost result within the benchmark's scope and remove or flag the unsupported accuracy claim under rule 1.2. Preserve both of B's supported results and its 500-item scope. Keep C's supported export-time result while removing or flagging its unsupported memory claim.
+- Prohibited changes: Do not infer unchanged accuracy or memory use from missing measurements, invent a loss to create balance, treat `without` as a banned word, or generalize B's accuracy result beyond the supplied classification set.
+- Pass/fail rubric: Pass if each retained claim has support at its stated scope. The supported control may remain unchanged; the unsupported preservation claims must be removed or identified without implying that a loss occurred.

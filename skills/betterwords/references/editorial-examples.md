@@ -49,3 +49,17 @@ Draft and source:
 > У вівторок ми додали збережені фільтри до експорту. Тепер потрібний набір можна вибрати зі списку.
 
 Editorial decision: Return the text unchanged. It is clear, grammatical, and supported by the supplied source. A second copyedit should also leave it alone unless a reviewer can name a remaining defect. Rules 7.1, 7.2, and 8.3 support natural Ukrainian and proportionate editing; they do not require visible intervention.
+
+## Name the intended property
+
+Request: Line-edit this Ukrainian explanation. The surrounding section compares three reviewed controls and identifies limiting the agent's access as the simplest of them. The author confirms that the sentence concerns simplicity; no resource-cost comparison is supplied.
+
+Author's draft:
+
+> Агент бачить лише те, до чого йому надали доступ, і це найдешевший спосіб керувати ризиком.
+
+One suitable result within that comparison:
+
+> Агент бачить лише те, до чого йому надали доступ, і це найпростіший спосіб керувати ризиком.
+
+Editorial decision: Replace "найдешевший" because it introduces cost where the supplied meaning is simplicity. Keep "бачить": it clearly expresses the agent's access without implying human sight. Rules 3.6 and 7.3 concern the function and meaning of the wording. "Найдешевший" would fit a supported cost comparison, including a named resource such as computation. If the author had supplied neither the intended property nor the comparison scope, flag those gaps instead of choosing a new superlative.
